@@ -1,0 +1,586 @@
+/* ==========================================
+    HEADER STYLES - REVISI FINAL
+    Warna Ungu Konsisten: #400d31 (RGB: 64, 13, 49)
+    ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styles - Transparan Awal (Default State) */
+.main-header {
+  color: white;
+  padding: 0 !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(0px);
+  border-bottom: none !important;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Scrolled state - Munculkan warna ungu solid sama seperti footer */
+.main-header.scrolled {
+  background: linear-gradient(135deg, #551149 0%, #400d31 100%) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  color: white !important;
+}
+
+.main-header.scrolled a,
+.main-header.scrolled .header-controls svg,
+.main-header a,
+.main-header .header-controls svg {
+  color: white !important;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 70px;
+  position: relative;
+}
+
+/* ==========================================
+    LOGO & BRAND
+    ========================================== */
+.logo {
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* ==========================================
+    DESKTOP NAVIGATION
+    ========================================== */
+.desktop-nav {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.desktop-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.desktop-nav ul li {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.desktop-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desktop-nav ul li a:hover {
+  color: #a76eff;
+}
+
+.desktop-nav ul li a.active-nav-link {
+  color: #a76eff;
+}
+
+/* ==========================================
+    DROPDOWN DESKTOP (SMOOTH)
+    ========================================== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown .arrow-icon {
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.dropdown .arrow-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #400d31;
+  min-width: 180px;
+  box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.4);
+  z-index: 1002;
+  top: 100%;
+  left: 0;
+  margin-top: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dropdown-content.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.dropdown-content a {
+  color: #ffffff;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(167, 110, 255, 0.3);
+  color: #a76eff;
+}
+
+/* ==========================================
+    HEADER CONTROLS (Search & Menu)
+    ========================================== */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 30px;
+}
+
+.search-input {
+  width: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 16px;
+  outline: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: width 0.4s ease, padding 0.4s ease, opacity 0.4s ease, margin-right 0.4s ease, background-color 0.3s ease;
+  margin-right: -30px;
+  box-sizing: border-box;
+  height: 30px;
+}
+
+.search-container:hover .search-input {
+  width: 220px;
+  padding: 5px 15px;
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.2);
+  margin-right: 10px;
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.search-input:focus {
+  width: 220px;
+  padding: 5px 15px;
+  opacity: 1;
+  border-color: white;
+  margin-right: 10px;
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-icon,
+.mobile-menu-btn {
+  background: none !important;
+  border: none !important;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.search-icon:hover,
+.mobile-menu-btn:hover {
+  color: #a76eff;
+  transform: scale(1.1);
+}
+
+.search-icon:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================
+    HAMBURGER MENU ANIMATION
+    ========================================== */
+.mobile-menu-btn {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 24px;
+  padding: 0;
+}
+
+.mobile-menu-btn.active {
+  transform: none;
+}
+
+.mobile-menu-btn.active svg {
+  animation: rotateX 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateZ(-180deg) rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg) rotateX(0deg);
+  }
+}
+
+.mobile-menu-btn:not(.active) svg {
+  animation: rotateXBack 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes rotateXBack {
+  0% {
+    opacity: 0;
+    transform: rotateZ(180deg) rotateX(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg) rotateX(0deg);
+  }
+}
+
+/* ==========================================
+    MOBILE NAVIGATION (EFEK STAGGERED) - UPDATED
+    ========================================== */
+.mobile-nav {
+  display: block;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 0;
+  background: linear-gradient(135deg, #551149 0%, #400d31 100%) !important;
+  padding: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, padding 0.5s ease;
+  opacity: 0;
+  z-index: 999;
+  overflow: hidden;
+  animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav.open {
+  max-height: 500px;
+  padding: 0;
+  overflow-y: auto;
+  opacity: 1;
+  animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav ul li {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mobile-nav.open ul li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-nav.open ul li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-nav.open ul li:nth-child(2) { transition-delay: 0.15s; }
+.mobile-nav.open ul li:nth-child(3) { transition-delay: 0.2s; }
+.mobile-nav.open ul li:nth-child(4) { transition-delay: 0.25s; }
+.mobile-nav.open ul li:nth-child(5) { transition-delay: 0.3s; }
+
+.mobile-nav ul li:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav ul li a {
+  color: white !important;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+  font-weight: 400;
+  background: transparent !important;
+}
+
+.mobile-nav ul li a:hover {
+  background-color: rgba(167, 110, 255, 0.2) !important;
+  color: #a76eff !important;
+  padding-left: 28px;
+}
+
+.mobile-nav ul li a.active-nav-link {
+  color: #a76eff !important;
+}
+
+/* ==========================================
+    DROPDOWN MOBILE (Submenu di Mobile) - UPDATED
+    ========================================== */
+.dropdown-mobile .dropbtn-mobile {
+  width: 100%;
+  text-align: left;
+  padding: 12px 24px;
+  background: transparent !important;
+  border: none;
+  color: white !important;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+}
+
+.dropdown-mobile .dropbtn-mobile:hover {
+  background-color: rgba(167, 110, 255, 0.2) !important;
+  color: #a76eff !important;
+  padding-left: 28px;
+}
+
+.dropdown-mobile .dropbtn-mobile.active-nav-link {
+  color: #a76eff !important;
+}
+
+.dropdown-mobile .arrow-icon {
+  transition: transform 0.3s ease;
+  color: white !important;
+}
+
+.dropdown-mobile .arrow-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown-content-mobile {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.4s ease;
+  background: linear-gradient(135deg, #3d0b2a 0%, #2d0820 100%) !important;
+  opacity: 0;
+  padding: 0;
+}
+
+.dropdown-mobile.open .dropdown-content-mobile {
+  max-height: 200px;
+  opacity: 1;
+  padding: 10px 0;
+  animation: slideDownSubmenu 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDownSubmenu {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.dropdown-content-mobile a {
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 24px;
+  text-decoration: none;
+  display: block;
+  color: white !important;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+  font-size: 15px;
+  font-weight: 400;
+  background: transparent !important;
+}
+
+.dropdown-content-mobile a:hover {
+  background-color: rgba(167, 110, 255, 0.2) !important;
+  color: #a76eff !important;
+  padding-left: 45px;
+}
+
+/* ==========================================
+    MOBILE OVERLAY
+    ========================================== */
+.mobile-overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: fadeIn 0.3s ease;
+}
+
+.mobile-overlay.show {
+  opacity: 1;
+  display: block;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 0.7; }
+}
+
+/* ==========================================
+    RESPONSIVE DESIGN (BREAKPOINTS)
+    ========================================== */
+
+/* Desktop Kecil (1024px dan di bawahnya) */
+@media (max-width: 1024px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .search-container:hover .search-input {
+    width: 160px;
+  }
+
+  .search-input:focus {
+    width: 160px;
+  }
+}
+
+/* Tablet Portrait/Mobile (768px dan di bawahnya) */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 15px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .search-container:hover .search-input {
+    width: 150px;
+  }
+
+  .search-input:focus {
+    width: 150px;
+  }
+
+  .header-content {
+    gap: 10px;
+  }
+}
+
+/* Mobile Kecil (480px dan di bawahnya) */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 10px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .search-container:hover .search-input {
+    width: 120px;
+  }
+
+  .search-input:focus {
+    width: 120px;
+    font-size: 14px;
+  }
+}

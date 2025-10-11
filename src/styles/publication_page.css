@@ -1,0 +1,608 @@
+/* ============================================
+   PUBLIKASI PAGE - CSS
+   SmartCity Kabupaten Tangerang
+   ============================================ */
+
+:root {
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #818cf8;
+  --secondary-color: #1e293b;
+  --accent-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #3b82f6;
+  --border-color: #e2e8f0;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* ============================================
+   CONTAINER & WRAPPER
+   ============================================ */
+
+.publikasi-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 0;
+}
+
+.publikasi-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 40px;
+  padding-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .publikasi-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 30px;
+  }
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.publikasi-hero {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 100px 20px 60px;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  margin-top: -80px;
+  padding-top: 180px;
+}
+
+.publikasi-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.publikasi-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.publikasi-hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.publikasi-hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .publikasi-hero {
+    padding: 100px 20px 40px;
+    margin-top: -60px;
+    padding-top: 180px;
+  }
+
+  .publikasi-hero-title {
+    font-size: 32px;
+  }
+
+  .publikasi-hero-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* ============================================
+   SEARCH SECTION
+   ============================================ */
+
+.publikasi-search-section {
+  background: white;
+  padding: 30px 20px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+.publikasi-search-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.publikasi-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  padding: 12px 20px;
+  transition: var(--transition);
+}
+
+.publikasi-search-box:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.publikasi-search-icon {
+  color: var(--text-light);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.publikasi-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--text-dark);
+  font-family: inherit;
+}
+
+.publikasi-search-input::placeholder {
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .publikasi-search-section {
+    padding: 20px;
+  }
+
+  .publikasi-search-container {
+    padding: 0;
+  }
+}
+
+/* ============================================
+   FILTER SECTION
+   ============================================ */
+
+.publikasi-filters {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.publikasi-filter-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.publikasi-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.publikasi-category-btn {
+  padding: 12px 16px;
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+  font-family: inherit;
+}
+
+.publikasi-category-btn:hover {
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
+  transform: translateX(4px);
+}
+
+.publikasi-category-btn.active {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  border-color: var(--primary-dark);
+  color: white;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+@media (max-width: 768px) {
+  .publikasi-filters {
+    position: relative;
+    top: auto;
+  }
+
+  .publikasi-category-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .publikasi-category-btn {
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   PUBLIKASI CONTENT
+   ============================================ */
+
+.publikasi-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.publikasi-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.publikasi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  .publikasi-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .publikasi-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ============================================
+   PUBLIKASI CARD
+   ============================================ */
+
+.publikasi-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.publikasi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.publikasi-card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+.publikasi-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.publikasi-card:hover .publikasi-card-image img {
+  transform: scale(1.08);
+}
+
+.publikasi-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.badge-berita {
+  background: rgba(59, 130, 246, 0.9);
+  color: white;
+}
+
+.badge-artikel {
+  background: rgba(139, 92, 246, 0.9);
+  color: white;
+}
+
+.badge-panduan {
+  background: rgba(16, 185, 129, 0.9);
+  color: white;
+}
+
+.badge-acara {
+  background: rgba(245, 158, 11, 0.9);
+  color: white;
+}
+
+.publikasi-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.publikasi-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.publikasi-card-excerpt {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+.publikasi-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.publikasi-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.publikasi-meta-item svg {
+  color: var(--primary-color);
+}
+
+.publikasi-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+.publikasi-card-link:hover {
+  color: var(--primary-dark);
+  transform: translateX(4px);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+
+.publikasi-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.publikasi-empty p {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+
+.publikasi-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 30px 0;
+}
+
+.publikasi-pagination-btn {
+  padding: 10px 16px;
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.publikasi-pagination-btn:hover:not(:disabled) {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.publikasi-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.publikasi-pagination-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.publikasi-pagination-number {
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+
+.publikasi-pagination-number:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.publikasi-pagination-number.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .publikasi-pagination {
+    gap: 8px;
+  }
+
+  .publikasi-pagination-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .publikasi-pagination-number {
+    min-width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .publikasi-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .publikasi-filters {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .publikasi-container {
+    padding: 0;
+  }
+
+  .publikasi-hero {
+    padding: 80px 15px 30px;
+    margin-bottom: 25px;
+    margin-top: -60px;
+    padding-top: 140px;
+  }
+
+  .publikasi-hero-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .publikasi-hero-subtitle {
+    font-size: 14px;
+  }
+
+  .publikasi-search-section {
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+
+  .publikasi-card-body {
+    padding: 16px;
+  }
+
+  .publikasi-card-title {
+    font-size: 16px;
+  }
+
+  .publikasi-card-excerpt {
+    font-size: 13px;
+  }
+}

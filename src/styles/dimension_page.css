@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white;
+    color: #333;
+    font-weight: normal;
+}
+
+/* KRITIS: Pastikan html dan body tidak ada padding/margin */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+}
+
+/* PENTING: Hilangkan semua margin dan padding dari main */
+.dimensi-main {
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Hero section DARI PALING ATAS */
+.dimensi-hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('/images/cityscape_background.jpg') center/cover;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    top: 0;
+}
+
+/* Container dalam hero dengan padding agar tidak tertutup header */
+.dimensi-hero-section .container {
+    position: relative;
+    z-index: 1;
+    padding: 140px 20px 80px;
+}
+
+.dimensi-hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dimensi-hero-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.dimensi-content-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.dimensi-content-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 60px;
+    font-weight: 600;
+}
+
+.dimensi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.dimensi-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.dimensi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.dimensi-card:hover::before {
+    left: 100%;
+}
+
+.dimensi-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #3498db;
+}
+
+.dimensi-card:focus {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+}
+
+.dimensi-card:hover .card-icon {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.card-icon img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.dimensi-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.dimensi-card p {
+    color: #7f8c8d;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.dimensi-card:hover p {
+    color: #3498db;
+}
+
+/* Warna icon untuk setiap dimensi */
+.dimensi-card:nth-child(1) .card-icon {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.dimensi-card:nth-child(2) .card-icon {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+}
+
+.dimensi-card:nth-child(3) .card-icon {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+}
+
+.dimensi-card:nth-child(4) .card-icon {
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3);
+}
+
+.dimensi-card:nth-child(5) .card-icon {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+.dimensi-card:nth-child(6) .card-icon {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #e74c3c;
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.modal-content h3 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.modal-content p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dimensi-hero-section {
+        min-height: 80vh;
+        background-attachment: scroll;
+    }
+
+    .dimensi-hero-section .container {
+        padding: 100px 20px 60px;
+    }
+    
+    .dimensi-hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .dimensi-hero-section p {
+        font-size: 1rem;
+    }
+    
+    .dimensi-content-section {
+        padding: 60px 0;
+    }
+    
+    .dimensi-content-section h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .dimensi-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .dimensi-card {
+        padding: 30px 20px;
+    }
+    
+    .dimensi-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+        padding: 30px 20px;
+    }
+    
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .modal-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dimensi-hero-section .container {
+        padding: 80px 20px 40px;
+    }
+    
+    .dimensi-hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .dimensi-content-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .card-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .card-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .dimensi-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-content {
+        margin: 15% auto;
+        padding: 20px 15px;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .dimensi-card:hover {
+        transform: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dimensi-card:active {
+        transform: scale(0.98);
+    }
+}
