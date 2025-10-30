@@ -37,7 +37,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/persona" element={<Persona />} />
               <Route path="/event" element={<Event />} />
-              <Route path="/dimension" element={<Dimension />} />
+              <Route path="/dimensi" element={<Dimensi />} />
               <Route path="/publication" element={<Publication />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
