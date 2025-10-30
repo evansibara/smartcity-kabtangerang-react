@@ -1,214 +1,176 @@
-/* Styling umum dan reset */
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* ====== FOOTER SMART CITY TANGERANG ====== */
+
+.footer {
+  background: linear-gradient(90deg, #711C5C 0%, #9E237C 64%, #A72583 100%);
+  color: #fff;
+  padding: 60px 80px 30px;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  z-index: 10;
 }
 
-/* Hilangkan background header bar bawaan */
-header,
-nav,
-.header,
-.navbar,
-.header-bar {
-    background: none !important;
-    background-color: transparent !important;
-}
-
-/* Container utama footer */
+/* ===== Layout grid ===== */
 .footer-content {
-    background: linear-gradient(135deg, #551149 0%, #400d31 100%);
-    padding: 60px 40px;
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 40px;
-    align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.3fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
 }
 
-/* Setiap bagian dalam footer */
-.footer-content .footer-section {
-    flex: 1;
-    min-width: 250px;
-    text-align: left;
-    margin-bottom: 20px;
+/* ===== Deskripsi ===== */
+.footer-section.about p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #f2f2f2;
+  margin-top: 10px;
 }
 
-/* Gaya untuk judul di setiap bagian */
-.footer-content .footer-section h3 {
-    margin-top: 0;
-    font-size: 1.4em;
-    color: #f0f0f0;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 5px;
+.logo-smartcity {
+  width: 130px;
+  margin-bottom: 15px;
 }
 
-/* Garis bawah modern pada judul footer */
-.footer-content .footer-section h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 3px;
-    background-color: #a3076f;
-    border-radius: 5px;
+/* ===== Judul Kolom dengan efek garis bawah gradasi bergerak ===== */
+.footer-section h3 {
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  display: inline-block;
+  padding-bottom: 6px;
+  color: #fff;
 }
 
-.footer-content .footer-section p {
-    margin-bottom: 10px;
-    font-size: 1em;
-    line-height: 1.8;
-    color: #dcdcdc;
+/* Efek garis bawah berjalan */
+.footer-section h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(270deg, #9e237c, #ff7ce5, #9e237c);
+  background-size: 200% 100%;
+  animation: underlineGradient 3s linear infinite;
+  border-radius: 3px;
 }
 
-.footer-content .footer-section ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+@keyframes underlineGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
-.footer-content .footer-section ul li {
-    margin-bottom: 12px;
+/* ===== Tautan Cepat (list) ===== */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Styling link dasar */
-.footer-content .footer-section a {
-    color: #e2e8f0;
-    text-decoration: none;
-    font-size: 1em;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
+.footer-section ul li {
+  margin-bottom: 10px;
+  position: relative;
 }
 
-/* EFEK HOVER UNTUK TAUTAN CEPAT - DENGAN SCALE/PEMBESARAN */
-.footer-content .footer-section.links a {
-    position: relative;
-    padding-bottom: 2px;
-    transition: transform 0.3s ease, color 0.3s ease;
+.footer-section ul li a {
+  text-decoration: none;
+  color: #f9e6ff; /* Lebih cerah dari sebelumnya */
+  font-size: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding-left: 0;
 }
 
-/* Underline animasi dari kiri ke kanan */
-.footer-content .footer-section.links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #a3076f;
-    transition: width 0.3s ease;
+/* Efek hover link: warna, garis bawah gradasi & glow */
+.footer-section ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff9bf3, #a72583);
+  transition: width 0.3s ease;
+  border-radius: 2px;
 }
 
-.footer-content .footer-section.links a:hover::after {
-    width: 100%;
+.footer-section ul li a:hover {
+  color: #fef5ff; 
+  text-shadow: 0 0 8px rgba(255, 185, 255, 0.7); 
+  transform: translateX(4px);
 }
 
-.footer-content .footer-section.links a:hover {
-    color: #a3076f;
-    transform: scale(1.1); /* Efek pembesaran seperti di icon sosmed */
+.footer-section ul li a:hover::before {
+  width: 100%;
 }
 
-/* Hover untuk link selain Tautan Cepat */
-.footer-content .footer-section:not(.links) a:hover {
-    color: #a3076f;
+/* ===== Kontak ===== */
+.footer-section.contact p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #f2f2f2;
 }
 
-.footer-content .logo-smartcity {
-    max-width: 180px;
-    height: auto;
-    margin-bottom: 25px;
-    filter: brightness(1.2);
+/* ===== Sosial Media ===== */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
 }
 
-/* Gaya ikon sosial media - TANPA GELEMBUNG */
-.footer-content .social-icons {
-    display: flex;
-    gap: 20px;
-    margin-top: 15px;
-    flex-wrap: wrap;
+.social-icons a {
+  color: #fff;
+  font-size: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
 }
 
-.footer-content .social-icons a {
-    font-size: 1.5em;
-    color: #fff;
-    transition: transform 0.3s ease, color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.social-icons a:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
+  color: #ffb8f9;
 }
 
-.footer-content .social-icons a:hover {
-    color: #a3076f;
-    transform: translateY(-3px) scale(1.1);
-}
-
-/* Styling khusus untuk icon Threads - Simple */
-.footer-content .social-icons .threads-icon svg {
-    width: 22px;
-    height: 22px;
-    transition: transform 0.3s ease;
-}
-
-.footer-content .social-icons .threads-icon:hover {
-    color: #a3076f; 
-}
-
-.footer-content .social-icons .threads-icon:hover svg {
-    transform: scale(1.1);
-}
-
-/* Bagian copyright */
+/* ===== Footer Bottom ===== */
 .footer-bottom {
-    background-color: #400d31;
-    padding: 20px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 50px;
+  padding-top: 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 50px 20px 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
     text-align: center;
-    color: #aaa;
-    font-size: 0.9em;
-}
+  }
 
-/* Media Queries untuk responsivitas */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .footer-content .footer-section {
-        width: 100%;
-        max-width: 400px;
-        text-align: center;
-    }
-    .footer-content .social-icons {
-        justify-content: center;
-        gap: 18px;
-    }
-    .footer-content .social-icons a {
-        font-size: 1.4em;
-    }
-    .footer-content .social-icons .threads-icon svg {
-        width: 20px;
-        height: 20px;
-    }
-    .footer-content .footer-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
+  .footer-section h3 {
+    margin-top: 20px;
+  }
 
-@media (max-width: 480px) {
-    .footer-content .social-icons {
-        gap: 15px;
-    }
-    .footer-content .social-icons a {
-        font-size: 1.3em;
-    }
-    .footer-content .social-icons .threads-icon svg {
-        width: 18px;
-        height: 18px;
-    }
+  .social-icons {
+    justify-content: center;
+  }
 }
