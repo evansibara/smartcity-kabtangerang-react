@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-/* Header Styles - Transparan Awal (Default State) */
 .main-header {
   color: white;
   padding: 0 !important;
@@ -20,9 +19,8 @@
   transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Scrolled state - Warna ungu solid (tidak transparan/blur) */
 .main-header.scrolled {
-  background: rgba(113, 28, 92, 1) !important; /* ungu solid 100% tanpa transparansi */
+  background: linear-gradient(90deg, #711C5C 0%, #9E237C 64%, #A72583 100%) !important;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
@@ -103,6 +101,9 @@
   color: #C44B9E;
 }
 
+/* ============================
+   DROPDOWN DESKTOP
+============================ */
 .dropdown {
   position: relative;
 }
@@ -118,7 +119,7 @@
 
 .dropdown-content {
   position: absolute;
-  background-color: #711C5C;
+  background: linear-gradient(135deg, #711C5C 0%, #9E237C 64%, #A72583 100%) !important;
   min-width: 180px;
   box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.4);
   z-index: 1002;
@@ -132,7 +133,7 @@
   visibility: hidden;
   transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s 0.3s;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding:2px 10px;
+  padding: 2px 10px;
 }
 
 .dropdown-content.show {
@@ -144,7 +145,7 @@
 
 .dropdown-content a {
   color: #ffffff;
-  padding: 10px 1px; 
+  padding: 10px 1px;
   text-decoration: none;
   display: block;
   text-align: left;
@@ -160,13 +161,13 @@
 }
 
 .dropdown-content a:hover {
-  background-color: rgba(196, 75, 158, 0.3);
-  color: #C44B9E;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFD3F5;
 }
 
-/* ===========================
+/* ============================
    BAGIAN KONTROL HEADER
-=========================== */
+============================ */
 .header-controls {
   display: flex;
   align-items: center;
@@ -247,9 +248,9 @@
   transform: scale(0.95);
 }
 
-/* ===========================
+/* ============================
    MOBILE MENU STYLES
-=========================== */
+============================ */
 .mobile-menu-btn {
   display: none;
   position: relative;
@@ -292,9 +293,9 @@
   }
 }
 
-/* ===========================
+/* ============================
    MOBILE NAVIGATION
-=========================== */
+============================ */
 .mobile-nav {
   display: block;
   position: fixed;
@@ -303,7 +304,7 @@
   right: 0;
   width: 100%;
   max-height: 0;
-  background: linear-gradient(135deg, #9E237C 0%, #711C5C 100%) !important;
+  background: linear-gradient(135deg, #711C5C 0%, #9E237C 64%, #A72583 100%) !important;
   padding: 0;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, padding 0.5s ease;
@@ -388,15 +389,18 @@
 }
 
 .mobile-nav ul li a:hover {
-  background-color: rgba(196, 75, 158, 0.2) !important;
-  color: #C44B9E !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFD3F5 !important;
   padding-left: 28px;
 }
 
 .mobile-nav ul li a.active-nav-link {
-  color: #C44B9E !important;
+  color: #FFD3F5 !important;
 }
 
+/* ============================
+   DROPDOWN MOBILE
+============================ */
 .dropdown-mobile .dropbtn-mobile {
   width: 100%;
   text-align: left;
@@ -413,13 +417,13 @@
 }
 
 .dropdown-mobile .dropbtn-mobile:hover {
-  background-color: rgba(196, 75, 158, 0.2) !important;
-  color: #C44B9E !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFD3F5 !important;
   padding-left: 28px;
 }
 
 .dropdown-mobile .dropbtn-mobile.active-nav-link {
-  color: #C44B9E !important;
+  color: #FFD3F5 !important;
 }
 
 .dropdown-mobile .arrow-icon {
@@ -435,7 +439,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.4s ease;
-  background: linear-gradient(135deg, #7A1A5F 0%, #5C1447 100%) !important;
+  background: linear-gradient(135deg, #711C5C 0%, #9E237C 64%, #A72583 100%) !important;
   opacity: 0;
   padding: 0;
 }
@@ -473,8 +477,8 @@
 }
 
 .dropdown-content-mobile a:hover {
-  background-color: rgba(196, 75, 158, 0.2) !important;
-  color: #C44B9E !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFD3F5 !important;
   padding-left: 45px;
 }
 
@@ -502,6 +506,9 @@
   100% { opacity: 0.7; }
 }
 
+/* ============================
+   RESPONSIVE
+============================ */
 @media (max-width: 1024px) {
   .desktop-nav {
     display: none;

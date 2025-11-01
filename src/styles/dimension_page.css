@@ -14,14 +14,12 @@ body {
     font-weight: normal;
 }
 
-/* KRITIS: Pastikan html dan body tidak ada padding/margin */
 html, body {
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden;
 }
 
-/* PENTING: Hilangkan semua margin dan padding dari main */
 .dimensi-main {
     margin: 0 !important;
     padding: 0 !important;
@@ -29,7 +27,6 @@ html, body {
     padding-top: 0 !important;
 }
 
-/* Hero section DARI PALING ATAS */
 .dimensi-hero-section {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                 url('/images/cityscape_background.jpg') center/cover;
@@ -48,7 +45,6 @@ html, body {
     top: 0;
 }
 
-/* Container dalam hero dengan padding agar tidak tertutup header */
 .dimensi-hero-section .container {
     position: relative;
     z-index: 1;
@@ -78,9 +74,18 @@ html, body {
 .dimensi-content-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 60px;
+    color: #8B2E85;
+    margin-bottom: 20px;
     font-weight: 600;
+}
+
+.dimensi-content-section > .container > p {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
 }
 
 .dimensi-grid {
@@ -97,7 +102,7 @@ html, body {
     border-radius: 15px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     cursor: pointer;
     border: 2px solid transparent;
@@ -112,7 +117,7 @@ html, body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(139, 46, 133, 0.1), transparent);
     transition: left 0.5s;
 }
 
@@ -122,12 +127,12 @@ html, body {
 
 .dimensi-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: #3498db;
+    box-shadow: 0 15px 35px rgba(139, 46, 133, 0.2);
+    border-color: #8B2E85;
 }
 
 .dimensi-card:focus {
-    outline: 3px solid #3498db;
+    outline: 3px solid #8B2E85;
     outline-offset: 2px;
     transform: translateY(-5px);
 }
@@ -139,21 +144,34 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #9E237C, #8B2E85);
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
     transition: all 0.3s ease;
 }
 
 .dimensi-card:hover .card-icon {
     transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 8px 25px rgba(158, 35, 124, 0.4);
 }
 
-.card-icon img {
+.card-icon img,
+.card-icon svg,
+.card-icon i {
     width: 40px;
     height: 40px;
     filter: brightness(0) invert(1);
+}
+
+.card-icon .icon {
+    font-size: 40px;
+    color: white;
+}
+
+/* Jika menggunakan Font Awesome atau icon font lainnya */
+.card-icon::before {
+    font-size: 40px;
+    color: white;
 }
 
 .dimensi-card h3 {
@@ -166,46 +184,46 @@ html, body {
 .dimensi-card p {
     color: #7f8c8d;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 1.6;
     transition: color 0.3s ease;
 }
 
 .dimensi-card:hover p {
-    color: #3498db;
+    color: #8B2E85;
 }
 
-/* Warna icon untuk setiap dimensi */
+/* Warna icon untuk setiap dimensi - menggunakan gradient purple/magenta */
 .dimensi-card:nth-child(1) .card-icon {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+    background: linear-gradient(135deg, #9E237C, #8B2E85);
+    box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
 }
 
 .dimensi-card:nth-child(2) .card-icon {
-    background: linear-gradient(135deg, #f39c12, #e67e22);
-    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+    background: linear-gradient(135deg, #A72583, #9E237C);
+    box-shadow: 0 5px 15px rgba(167, 37, 131, 0.3);
 }
 
 .dimensi-card:nth-child(3) .card-icon {
-    background: linear-gradient(135deg, #1abc9c, #16a085);
-    box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+    background: linear-gradient(135deg, #B0278A, #A72583);
+    box-shadow: 0 5px 15px rgba(176, 39, 138, 0.3);
 }
 
 .dimensi-card:nth-child(4) .card-icon {
-    background: linear-gradient(135deg, #f1c40f, #f39c12);
-    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3);
+    background: linear-gradient(135deg, #9E237C, #8B2E85);
+    box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
 }
 
 .dimensi-card:nth-child(5) .card-icon {
-    background: linear-gradient(135deg, #27ae60, #229954);
-    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+    background: linear-gradient(135deg, #A72583, #9E237C);
+    box-shadow: 0 5px 15px rgba(167, 37, 131, 0.3);
 }
 
 .dimensi-card:nth-child(6) .card-icon {
-    background: linear-gradient(135deg, #9b59b6, #8e44ad);
-    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+    background: linear-gradient(135deg, #B0278A, #A72583);
+    box-shadow: 0 5px 15px rgba(176, 39, 138, 0.3);
 }
 
-/* Modal Styling */
 .modal {
     display: none;
     position: fixed;
@@ -220,14 +238,16 @@ html, body {
 
 .modal-content {
     background-color: white;
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 40px;
     border-radius: 15px;
-    width: 80%;
-    max-width: 600px;
+    width: 85%;
+    max-width: 700px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     animation: modalSlideIn 0.3s ease;
     position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
 @keyframes modalSlideIn {
@@ -255,23 +275,115 @@ html, body {
 
 .close:hover,
 .close:focus {
-    color: #e74c3c;
-    outline: 2px solid #3498db;
+    color: #8B2E85;
+    outline: 2px solid #8B2E85;
     outline-offset: 2px;
 }
 
 .modal-content h3 {
-    color: #2c3e50;
+    color: #8B2E85;
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    padding-right: 40px;
+}
+
+.modal-content .modal-description {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+.modal-content .modal-details {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid #8B2E85;
+}
+
+.modal-content .modal-details h4 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
     font-weight: 600;
 }
 
-.modal-content p {
-    color: #555;
-    font-size: 1.1rem;
+.modal-content .modal-details ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.modal-content .modal-details li {
+    color: #666;
+    font-size: 0.95rem;
     line-height: 1.6;
-    text-align: justify;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.modal-content .modal-details li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #8B2E85;
+    font-weight: bold;
+}
+
+.modal-button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.modal-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-btn-primary {
+    background: linear-gradient(135deg, #9E237C, #8B2E85);
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 46, 133, 0.3);
+}
+
+.modal-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 46, 133, 0.4);
+}
+
+.modal-btn-primary:active {
+    transform: translateY(0);
+}
+
+.modal-btn-secondary {
+    background: white;
+    color: #8B2E85;
+    border: 2px solid #8B2E85;
+}
+
+.modal-btn-secondary:hover {
+    background: #8B2E85;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.modal-btn-secondary:active {
+    transform: translateY(0);
 }
 
 .container {
@@ -305,6 +417,11 @@ html, body {
     
     .dimensi-content-section h2 {
         font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .dimensi-content-section > .container > p {
+        font-size: 0.95rem;
         margin-bottom: 40px;
     }
     
@@ -324,16 +441,40 @@ html, body {
     
     .modal-content {
         width: 95%;
-        margin: 20% auto;
+        margin: 10% auto;
         padding: 30px 20px;
+        max-height: 80vh;
     }
     
     .modal-content h3 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     
-    .modal-content p {
+    .modal-content .modal-description {
+        font-size: 0.95rem;
+    }
+
+    .modal-content .modal-details {
+        padding: 15px;
+    }
+
+    .modal-content .modal-details h4 {
         font-size: 1rem;
+    }
+
+    .modal-content .modal-details li {
+        font-size: 0.9rem;
+    }
+
+    .modal-button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
     }
 }
 
@@ -355,9 +496,15 @@ html, body {
         height: 60px;
     }
     
-    .card-icon img {
+    .card-icon img,
+    .card-icon svg,
+    .card-icon i {
         width: 30px;
         height: 30px;
+    }
+
+    .card-icon .icon {
+        font-size: 30px;
     }
     
     .dimensi-card h3 {
@@ -365,15 +512,28 @@ html, body {
     }
     
     .modal-content {
-        margin: 15% auto;
-        padding: 20px 15px;
+        margin: 10% auto;
+        padding: 25px 15px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .modal-content .modal-description {
+        font-size: 0.9rem;
+    }
+
+    .modal-btn {
+        font-size: 0.95rem;
+        padding: 10px 20px;
     }
 }
 
 @media (hover: none) and (pointer: coarse) {
     .dimensi-card:hover {
         transform: none;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
     
     .dimensi-card:active {
