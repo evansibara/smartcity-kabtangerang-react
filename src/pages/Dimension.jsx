@@ -156,8 +156,9 @@ export default function Dimensi() {
               onKeyDown={(e) => handleCardKeyDown(e, 'governance')}
             >
               <div className="card-icon">
-                <img src="images/smart-governance-icon.png" alt="Smart Governance Icon" 
-                     onError={(e) => {e.target.style.display='none'}} />
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                </svg>
               </div>
               <h3>Smart Governance</h3>
               <p>Tata kelola pemerintahan yang efisien dan transparan</p>
@@ -172,8 +173,9 @@ export default function Dimensi() {
               onKeyDown={(e) => handleCardKeyDown(e, 'living')}
             >
               <div className="card-icon">
-                <img src="images/smart-living-icon.png" alt="Smart Living Icon" 
-                     onError={(e) => {e.target.style.display='none'}} />
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                </svg>
               </div>
               <h3>Smart Living</h3>
               <p>Kualitas hidup yang baik dan layak huni</p>
@@ -188,8 +190,10 @@ export default function Dimensi() {
               onKeyDown={(e) => handleCardKeyDown(e, 'society')}
             >
               <div className="card-icon">
-                <img src="images/smart-society-icon.png" alt="Smart Society Icon" 
-                     onError={(e) => {e.target.style.display='none'}} />
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21c0-2.5-3.5-4-8-4s-8 1.5-8 4"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
               </div>
               <h3>Smart Society</h3>
               <p>Masyarakat yang berbudaya digital dan toleran</p>
@@ -204,8 +208,9 @@ export default function Dimensi() {
               onKeyDown={(e) => handleCardKeyDown(e, 'economy')}
             >
               <div className="card-icon">
-                <img src="images/smart-economy-icon.png" alt="Smart Economy Icon" 
-                     onError={(e) => {e.target.style.display='none'}} />
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
               </div>
               <h3>Smart Economy</h3>
               <p>Ekonomi yang inovatif, kompetitif, dan berkelanjutan</p>
@@ -220,8 +225,11 @@ export default function Dimensi() {
               onKeyDown={(e) => handleCardKeyDown(e, 'environment')}
             >
               <div className="card-icon">
-                <img src="images/smart-environment-icon.png" alt="Smart Environment Icon" 
-                     onError={(e) => {e.target.style.display='none'}} />
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
               </div>
               <h3>Smart Environment</h3>
               <p>Lingkungan yang lestari dan berkelanjutan</p>
@@ -236,8 +244,9 @@ export default function Dimensi() {
               onKeyDown={(e) => handleCardKeyDown(e, 'branding')}
             >
               <div className="card-icon">
-                <img src="images/smart-branding-icon.png" alt="Smart Branding Icon" 
-                     onError={(e) => {e.target.style.display='none'}} />
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
               </div>
               <h3>Smart Branding</h3>
               <p>Citra dan promosi kota yang menarik</p>

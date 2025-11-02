@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 import "../styles/footer.css";
 
@@ -29,10 +30,10 @@ const Footer = () => {
         <div className="footer-section links">
           <h3>Tautan Cepat</h3>
           <ul>
-            <li><a href="home_page.html">Beranda</a></li>
-            <li><a href="profile_page.html">Tentang</a></li>
-            <li><a href="dimensi_page.html">Dimensi</a></li>
-            <li><a href="persona_page.html">Publikasi</a></li>
+            <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/dimensi">Dimensi</Link></li>
+            <li><Link to="/event">Event</Link></li>
+            <li><Link to="/publication">Publikasi</Link></li>
           </ul>
         </div>
         

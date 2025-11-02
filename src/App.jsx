@@ -13,8 +13,8 @@ const Persona = lazy(() => import("./pages/Persona"));
 const Event = lazy(() => import("./pages/Event"));
 const Dimensi = lazy(() => import("./pages/Dimension"));
 const SmartGovernance = lazy(() => import("./pages/SmartGovernance"));
-const NotFound = lazy(() => import("./pages/NotFound"));
 const Publication = lazy(() => import("./pages/Publication"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading Component
 const LoadingSpinner = () => (
@@ -28,8 +28,9 @@ const LoadingSpinner = () => (
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop /> {/* Tambahkan di sini */}
+    <Router 
+    future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <ScrollToTop />
       <div className="app">
         <Header />
         <main className="main-content">
@@ -43,6 +44,7 @@ function App() {
               <Route path="/dimensi" element={<Dimensi />} />
               <Route path="/SmartGovernance" element={<SmartGovernance />} />
               <Route path="/publication" element={<Publication />} />
+              {/* Rute splat yang memicu peringatan berada di sini */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

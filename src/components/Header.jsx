@@ -109,7 +109,6 @@ const Header = () => {
                 </a>
                 <div className={`dropdown-content ${isAboutDropdownOpen ? 'show' : ''}`}>
                   <Link to="/profile" onClick={handleNavClick}>Profile</Link>
-                  <Link to="/persona" onClick={handleNavClick}>Persona</Link>
                 </div>
               </li>
 
@@ -163,7 +162,6 @@ const Header = () => {
             </button>
             <div className="dropdown-content-mobile">
               <Link to="/profile" onClick={handleNavClick}>Profile</Link>
-              <Link to="/persona" onClick={handleNavClick}>Persona</Link>
             </div>
           </li>
 
