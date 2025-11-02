@@ -80,7 +80,7 @@
 }
 
 .btn-explore {
-  background: linear-gradient(135deg, #9E237C, #C44B9E);
+  background: linear-gradient(135deg, #711C5C, #A72583);
   color: white;
   padding: 14px 40px;
   font-size: 1rem;
@@ -89,12 +89,12 @@
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(158, 35, 124, 0.4);
+  box-shadow: 0 4px 15px rgba(113, 28, 92, 0.4);
 }
 
 .btn-explore:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(158, 35, 124, 0.6);
+  box-shadow: 0 6px 20px rgba(113, 28, 92, 0.6);
 }
 
 /* Features Section */
@@ -123,14 +123,14 @@
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1200px;
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .feature-card {
   background: #f9f9f9;
-  padding: 40px 25px;
+  padding: 25px 15px;
   border-radius: 12px;
   text-align: center;
   transition: all 0.3s ease;
@@ -169,27 +169,27 @@
 }
 
 .feature-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 20px;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 15px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  background: linear-gradient(135deg, #9E237C, #C44B9E);
+  background: linear-gradient(135deg, #711C5C, #A72583);
   transition: all 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
   transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(158, 35, 124, 0.4);
+  box-shadow: 0 8px 25px rgba(113, 28, 92, 0.4);
 }
 
 .feature-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
@@ -219,18 +219,18 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #9E237C, #C44B9E);
+  background: linear-gradient(135deg, #711C5C, #A72583);
   padding: 35px 20px;
   border-radius: 12px;
   text-align: center;
   color: white;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(158, 35, 124, 0.3);
+  box-shadow: 0 4px 15px rgba(113, 28, 92, 0.3);
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(158, 35, 124, 0.4);
+  box-shadow: 0 8px 25px rgba(113, 28, 92, 0.4);
 }
 
 .stat-number {
@@ -380,14 +380,14 @@
 }
 
 .modal-btn-primary {
-  background: linear-gradient(135deg, #9E237C, #C44B9E);
+  background: linear-gradient(135deg, #711C5C, #A72583);
   color: white;
-  box-shadow: 0 4px 15px rgba(158, 35, 124, 0.3);
+  box-shadow: 0 4px 15px rgba(113, 28, 92, 0.3);
 }
 
 .modal-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(158, 35, 124, 0.4);
+  box-shadow: 0 6px 20px rgba(113, 28, 92, 0.4);
 }
 
 .modal-btn-primary:active {

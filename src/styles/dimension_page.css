@@ -74,7 +74,7 @@ html, body {
 .dimensi-content-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #8B2E85;
+    color: #9E237C;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -117,7 +117,7 @@ html, body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 46, 133, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(158, 35, 124, 0.1), transparent);
     transition: left 0.5s;
 }
 
@@ -127,12 +127,12 @@ html, body {
 
 .dimensi-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(139, 46, 133, 0.2);
-    border-color: #8B2E85;
+    box-shadow: 0 15px 35px rgba(158, 35, 124, 0.2);
+    border-color: #9E237C;
 }
 
 .dimensi-card:focus {
-    outline: 3px solid #8B2E85;
+    outline: 3px solid #9E237C;
     outline-offset: 2px;
     transform: translateY(-5px);
 }
@@ -144,15 +144,15 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #9E237C, #8B2E85);
+    background: linear-gradient(135deg, #711C5C, #A72583);
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
+    box-shadow: 0 5px 15px rgba(113, 28, 92, 0.3);
     transition: all 0.3s ease;
 }
 
 .dimensi-card:hover .card-icon {
     transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(158, 35, 124, 0.4);
+    box-shadow: 0 8px 25px rgba(113, 28, 92, 0.4);
 }
 
 .card-icon img,
@@ -190,38 +190,38 @@ html, body {
 }
 
 .dimensi-card:hover p {
-    color: #8B2E85;
+    color: #9E237C;
 }
 
 /* Warna icon untuk setiap dimensi - menggunakan gradient purple/magenta */
 .dimensi-card:nth-child(1) .card-icon {
-    background: linear-gradient(135deg, #9E237C, #8B2E85);
-    box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
+    background: linear-gradient(135deg, #711C5C, #9E237C);
+    box-shadow: 0 5px 15px rgba(113, 28, 92, 0.3);
 }
 
 .dimensi-card:nth-child(2) .card-icon {
-    background: linear-gradient(135deg, #A72583, #9E237C);
-    box-shadow: 0 5px 15px rgba(167, 37, 131, 0.3);
+    background: linear-gradient(135deg, #8B2668, #A72583);
+    box-shadow: 0 5px 15px rgba(139, 38, 104, 0.3);
 }
 
 .dimensi-card:nth-child(3) .card-icon {
-    background: linear-gradient(135deg, #B0278A, #A72583);
-    box-shadow: 0 5px 15px rgba(176, 39, 138, 0.3);
-}
-
-.dimensi-card:nth-child(4) .card-icon {
-    background: linear-gradient(135deg, #9E237C, #8B2E85);
+    background: linear-gradient(135deg, #9E237C, #B02C8F);
     box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
 }
 
+.dimensi-card:nth-child(4) .card-icon {
+    background: linear-gradient(135deg, #711C5C, #9E237C);
+    box-shadow: 0 5px 15px rgba(113, 28, 92, 0.3);
+}
+
 .dimensi-card:nth-child(5) .card-icon {
-    background: linear-gradient(135deg, #A72583, #9E237C);
-    box-shadow: 0 5px 15px rgba(167, 37, 131, 0.3);
+    background: linear-gradient(135deg, #8B2668, #A72583);
+    box-shadow: 0 5px 15px rgba(139, 38, 104, 0.3);
 }
 
 .dimensi-card:nth-child(6) .card-icon {
-    background: linear-gradient(135deg, #B0278A, #A72583);
-    box-shadow: 0 5px 15px rgba(176, 39, 138, 0.3);
+    background: linear-gradient(135deg, #9E237C, #B02C8F);
+    box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
 }
 
 .modal {
@@ -275,13 +275,13 @@ html, body {
 
 .close:hover,
 .close:focus {
-    color: #8B2E85;
-    outline: 2px solid #8B2E85;
+    color: #9E237C;
+    outline: 2px solid #9E237C;
     outline-offset: 2px;
 }
 
 .modal-content h3 {
-    color: #8B2E85;
+    color: #9E237C;
     font-size: 2rem;
     margin-bottom: 15px;
     font-weight: 600;
@@ -301,7 +301,7 @@ html, body {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
-    border-left: 4px solid #8B2E85;
+    border-left: 4px solid #9E237C;
 }
 
 .modal-content .modal-details h4 {
@@ -330,7 +330,7 @@ html, body {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #8B2E85;
+    color: #9E237C;
     font-weight: bold;
 }
 
@@ -356,14 +356,14 @@ html, body {
 }
 
 .modal-btn-primary {
-    background: linear-gradient(135deg, #9E237C, #8B2E85);
+    background: linear-gradient(135deg, #711C5C, #A72583);
     color: white;
-    box-shadow: 0 4px 15px rgba(139, 46, 133, 0.3);
+    box-shadow: 0 4px 15px rgba(113, 28, 92, 0.3);
 }
 
 .modal-btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139, 46, 133, 0.4);
+    box-shadow: 0 6px 20px rgba(113, 28, 92, 0.4);
 }
 
 .modal-btn-primary:active {
@@ -372,12 +372,12 @@ html, body {
 
 .modal-btn-secondary {
     background: white;
-    color: #8B2E85;
-    border: 2px solid #8B2E85;
+    color: #9E237C;
+    border: 2px solid #9E237C;
 }
 
 .modal-btn-secondary:hover {
-    background: #8B2E85;
+    background: #9E237C;
     color: white;
     transform: translateY(-2px);
 }
