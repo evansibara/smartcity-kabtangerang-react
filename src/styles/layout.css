@@ -99,35 +99,70 @@
   margin: 8px 0;
 }
 
-/* --- Back To Top Button --- */
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background: var(--primary-200); 
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(158, 35, 124, 0.3); 
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(100px);
-  z-index: 1000;
+/* BackToTopButton */
+
+.back-to-top-smartcity {
+    /* Posisi & Struktur */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    
+    /* Desain FAB SmartCity */
+    background: var(--gradient-primary); 
+    color: var(--text-light); 
+    
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    /* Bayangan & Transisi */
+    box-shadow: var(--theme-box-shadow); 
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.7);
+    transition: opacity 0.3s ease, 
+                transform 0.3s ease, 
+                visibility 0.3s,
+                /* Tambahkan transisi bayangan untuk Dark Mode */
+                box-shadow 0.3s ease; 
 }
 
-.back-to-top.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Status Terlihat */
+.back-to-top-smartcity.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
 }
 
-.back-to-top:hover {
-  background: var(--primary-300); 
-  transform: scale(1.1);
+/* Efek Hover PADA TOMBOL */
+.back-to-top-smartcity:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
 }
+
+/* Styling Ikon */
+.back-to-top-smartcity .icon {
+    width: 28px;
+    height: 28px;
+    stroke: var(--text-light);
+    /* Penting: Transisi untuk efek ikon */
+    transition: transform 0.3s ease; 
+}
+
+/* EFEK KHUSUS UNTUK IKON SAAT TOMBOL DI-HOVER */
+.back-to-top-smartcity:hover .icon {
+    /* Menggeser ikon sedikit ke atas (efek melonjak) */
+    transform: translateY(-3px); 
+}
+
 
 /* --- Media Queries dan Accessibility --- */
 @media (max-width: 768px) {
