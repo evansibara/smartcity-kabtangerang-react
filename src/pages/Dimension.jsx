@@ -23,7 +23,7 @@ const dimensiData = {
             "Keamanan dan kenyamanan hunian",
             "Aksesibilitas layanan publik yang mudah"
         ],
-        url: "/dimensi/living"
+        url: "/SmartLiving"
     },
     branding: {
         title: "Smart Branding",
@@ -34,7 +34,7 @@ const dimensiData = {
             "Peningkatan daya tarik investasi dan pariwisata",
             "Branding inovatif berbasis data dan kreativitas"
         ],
-        url: "/dimensi/branding"
+        url: "/SmartBranding"
     },
     society: {
         title: "Smart Society",
@@ -45,7 +45,7 @@ const dimensiData = {
             "Inklusivitas dan keberagaman sosial",
             "Pengembangan komunitas yang adaptif"
         ],
-        url: "/dimensi/society"
+        url: "/SmartSociety"
     },
     economy: {
         title: "Smart Economy",
@@ -56,7 +56,7 @@ const dimensiData = {
             "Pengembangan industri kreatif dan inovatif",
             "Ekosistem ekonomi yang kompetitif"
         ],
-        url: "/dimensi/economy"
+        url: "/SmartEconomy"
     },
     environment: {
         title: "Smart Environment",
@@ -67,7 +67,7 @@ const dimensiData = {
             "Monitoring kualitas udara dan air",
             "Mitigasi bencana dan ketahanan lingkungan"
         ],
-        url: "/dimensi/environment"
+        url: "/SmartEnvironment"
     }
 };
 

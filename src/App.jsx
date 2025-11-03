@@ -1,56 +1,60 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
-import "./App.css";
+import ScrollToTop from "./components/ScrollToTop"; 
+import "./App.css"; 
 
-// Lazy imports
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Profile = lazy(() => import("./pages/Profile"));
-const Persona = lazy(() => import("./pages/Persona"));
-const Event = lazy(() => import("./pages/Event"));
-const Dimensi = lazy(() => import("./pages/Dimension"));
-const SmartGovernance = lazy(() => import("./pages/SmartGovernance"));
-const Publication = lazy(() => import("./pages/Publication"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+import Layout from "./components/Layout";
+// LoadingSpinner tetap diimpor, tapi hanya digunakan untuk Fallback error/jika perlu di masa depan
+import LoadingSpinner from "./components/LoadingSpinner"; 
 
-// Loading Component
-const LoadingSpinner = () => (
-  <div className="loading-container">
-    <div className="loading-spinner">
-      <div className="spinner"></div>
-      <p>Loading...</p>
-    </div>
-  </div>
-);
+// Lazy imports untuk semua halaman
+const Home = lazy(() => import("./pages/Home.jsx"));
+const About = lazy(() => import("./pages/About.jsx"));
+const Profile = lazy(() => import("./pages/Profile.jsx"));
+const Persona = lazy(() => import("./pages/Persona.jsx"));
+const Event = lazy(() => import("./pages/Event.jsx"));
+const Dimensi = lazy(() => import("./pages/Dimension.jsx"));
+const SmartGovernance = lazy(() => import("./pages/SmartGovernance.jsx"));
+const SmartLiving = lazy(() => import("./pages/SmartLiving.jsx"));
+const SmartSociety = lazy(() => import("./pages/SmartSociety.jsx"));
+const SmartEconomy = lazy(() => import("./pages/SmartEconomy.jsx"));
+const SmartEnvironment = lazy(() => import("./pages/SmartEnvironment.jsx"));
+const SmartBranding = lazy(() => import("./pages/SmartBranding.jsx"));
+const Publication = lazy(() => import("./pages/Publication.jsx"));
+const NotFound = lazy(() => import("./pages/NotFound.jsx"));
 
 function App() {
   return (
     <Router 
-    future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ScrollToTop />
-      <div className="app">
-        <Header />
-        <main className="main-content">
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/persona" element={<Persona />} />
-              <Route path="/event" element={<Event />} />
-              <Route path="/dimensi" element={<Dimensi />} />
-              <Route path="/SmartGovernance" element={<SmartGovernance />} />
-              <Route path="/publication" element={<Publication />} />
-              {/* Rute splat yang memicu peringatan berada di sini */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-      </div>
+      
+      {/* Suspense tunggal di sini. Fallback={null} karena Layout.jsx menangani visual loading */}
+      <Suspense fallback={null}> 
+        <Routes>
+          {/* LAYOUT ROUTE: Semua rute anak akan memiliki Header, Footer, dan Logika Transisi */}
+          <Route element={<Layout />}>
+            
+            {/* RUTE ANAK: Hanya panggil komponen Lazy Load */}
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/persona" element={<Persona />} />
+            <Route path="/event" element={<Event />} />
+            <Route path="/dimensi" element={<Dimensi />} />
+            <Route path="/SmartGovernance" element={<SmartGovernance />} />
+            <Route path="/publication" element={<Publication />} />
+            <Route path="/SmartLiving" element={<SmartLiving />} />
+            <Route path="/SmartSociety" element={<SmartSociety />} />
+            <Route path="/SmartEconomy" element={<SmartEconomy />} />
+            <Route path="/SmartEnvironment" element={<SmartEnvironment />} />
+            <Route path="/SmartBranding" element={<SmartBranding />} />
+            
+            {/* Rute 404/NotFound */}
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
