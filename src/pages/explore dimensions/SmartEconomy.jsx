@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, User, Eye, Clock } from 'lucide-react';
-import '../styles/smart_economy.css';
+import '../../styles/smart_economy.css';
 
 export default function SmartEconomy() {
   const [selectedCategory, setSelectedCategory] = useState('semua');
@@ -24,8 +24,8 @@ export default function SmartEconomy() {
       id: 2,
       title: 'Dampak Digitalisasi Terhadap Sektor Industri Kreatif',
       excerpt: 'Analisis mendalam mengenai bagaimana integrasi teknologi digital telah meningkatkan efisiensi dan jangkauan pasar industri kreatif.',
-      category: 'artikel',
-      categoryLabel: 'ARTIKEL',
+      category: 'inovasi',
+      categoryLabel: 'INOVASI',
       date: '18 November 2025',
       author: 'Dr. Ahmad Kurniawan',
       views: '1120 views',
@@ -33,23 +33,11 @@ export default function SmartEconomy() {
       image: '/images/financial_data.jpg'
     },
     {
-      id: 3,
-      title: 'Panduan Pendaftaran Izin Usaha Online untuk Startup',
-      excerpt: 'Langkah-langkah mudah mendaftarkan izin usaha secara daring (online) bagi perusahaan startup di Kabupaten Tangerang.',
-      category: 'panduan',
-      categoryLabel: 'PANDUAN',
-      date: '15 November 2025',
-      author: 'Tim Regulasi',
-      views: '890 views',
-      readTime: '6 min',
-      image: '/images/economic_graph.jpg'
-    },
-    {
       id: 4,
       title: 'Strategi Menarik Investasi Asing di Kawasan Industri',
       excerpt: 'Pemerintah Kabupaten mengoptimalkan infrastruktur dan insentif pajak untuk menarik investor asing di sektor manufaktur dan teknologi.',
-      category: 'artikel',
-      categoryLabel: 'ARTIKEL',
+      category: 'inovasi',
+      categoryLabel: 'INOVASI',
       date: '10 November 2025',
       author: 'Jasmine Lee, MBA',
       views: '950 views',
@@ -67,27 +55,13 @@ export default function SmartEconomy() {
       views: '1300 views',
       readTime: '5 min',
       image: '/images/economic_graph.jpg'
-    },
-    {
-      id: 6,
-      title: 'Seminar: Masa Depan E-Commerce Lokal',
-      excerpt: 'Acara seminar yang mengundang pakar e-commerce nasional untuk membahas tren dan peluang pasar digital di tingkat daerah.',
-      category: 'acara',
-      categoryLabel: 'ACARA',
-      date: '01 November 2025',
-      author: 'Dinas Perdagangan',
-      views: '710 views',
-      readTime: '9 min',
-      image: '/images/financial_data.jpg'
     }
   ];
 
   const categories = [
     { id: 'semua', label: 'Semua' },
     { id: 'berita', label: 'Berita' },
-    { id: 'artikel', label: 'Artikel' },
-    { id: 'panduan', label: 'Panduan' },
-    { id: 'acara', label: 'Acara' }
+    { id: 'inovasi', label: 'Inovasi' }
   ];
 
   const filteredArtikel = artikelData.filter(item => {
@@ -106,9 +80,7 @@ export default function SmartEconomy() {
   const getCategoryClass = (category) => {
     const classes = {
       berita: 'badge-berita',
-      artikel: 'badge-artikel',
-      panduan: 'badge-panduan',
-      acara: 'badge-acara'
+      inovasi: 'badge-inovasi'
     };
     return classes[category] || 'badge-berita';
   };
@@ -154,44 +126,55 @@ export default function SmartEconomy() {
                 <div className="economy-grid">
                   {paginatedArtikel.map(item => (
                     <article key={item.id} className="economy-card">
-                      <div className="economy-card-image">
-                        <img src={item.image} alt={item.title} />
-                        <span className={`economy-badge ${getCategoryClass(item.category)}`}>
-                          {item.categoryLabel}
-                        </span>
-                      </div>
-                      <div className="economy-card-body">
-                        <h2 className="economy-card-title">{item.title}</h2>
-                        <p className="economy-card-excerpt">{item.excerpt}</p>
-                        
-                        <div className="economy-card-meta">
-                          <div className="economy-meta-item">
-                            <Calendar size={14} />
-                            <span>{item.date}</span>
-                          </div>
-                          <div className="economy-meta-item">
-                            <User size={14} />
-                            <span>{item.author}</span>
-                          </div>
-                          <div className="economy-meta-item">
-                            <Eye size={14} />
-                            <span>{item.views}</span>
+                      {item.category === 'inovasi' ? (
+                        <div className="economy-card-image">
+                          <img src={item.image} alt={item.title} />
+                          <div className="economy-image-overlay">
+                            <span className="economy-overlay-text">(animasi)</span>
                           </div>
                         </div>
+                      ) : (
+                        <>
+                          <div className="economy-card-image">
+                            <img src={item.image} alt={item.title} />
+                            <span className={`economy-badge ${getCategoryClass(item.category)}`}>
+                              {item.categoryLabel}
+                            </span>
+                          </div>
+                          <div className="economy-card-body">
+                            <h2 className="economy-card-title">{item.title}</h2>
+                            <p className="economy-card-excerpt">{item.excerpt}</p>
 
-                        <div className="economy-card-footer">
-                          <div className="economy-read-time">
-                            <Clock size={14} />
-                            <span>{item.readTime}</span>
+                            <div className="economy-card-meta">
+                              <div className="economy-meta-item">
+                                <Calendar size={14} />
+                                <span>{item.date}</span>
+                              </div>
+                              <div className="economy-meta-item">
+                                <User size={14} />
+                                <span>{item.author}</span>
+                              </div>
+                              <div className="economy-meta-item">
+                                <Eye size={14} />
+                                <span>{item.views}</span>
+                              </div>
+                            </div>
+
+                            <div className="economy-card-footer">
+                              <div className="economy-read-time">
+                                <Clock size={14} />
+                                <span>{item.readTime}</span>
+                              </div>
+                              <a href={`#artikel/${item.id}`} className="economy-read-more">
+                                Baca Selengkapnya
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                              </a>
+                            </div>
                           </div>
-                          <a href={`#artikel/${item.id}`} className="economy-read-more">
-                            Baca Selengkapnya
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
+                        </>
+                      )}
                     </article>
                   ))}
                 </div>

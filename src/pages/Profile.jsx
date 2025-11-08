@@ -1,15 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/profile_page.css";
 
 export default function Profile() {
+  const observerRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     initializeAnimations();
+
+    // Cleanup function yang lebih komprehensif
+    return () => {
+      // Disconnect observer
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+
+      // Reset semua inline styles yang ditambahkan
+      const allElements = document.querySelectorAll(
+        ".profile-overview-section, .vision-mission-section, .timeline-section, .vm-card, .timeline-item, .stat-number, .stat-item"
+      );
+      
+      allElements.forEach(element => {
+        if (element) {
+          element.style.opacity = "";
+          element.style.transform = "";
+          element.style.transition = "";
+          element.style.animation = "";
+        }
+      });
+    };
   }, []);
 
   const initializeAnimations = () => {
-    const observer = new IntersectionObserver((entries) => {
+    // Disconnect observer lama jika ada
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = "1";
@@ -29,7 +58,7 @@ export default function Profile() {
       section.style.opacity = "0";
       section.style.transform = "translateY(50px)";
       section.style.transition = "opacity 1s ease, transform 1s ease";
-      observer.observe(section);
+      observerRef.current.observe(section);
     });
 
     const cards = document.querySelectorAll(".vm-card, .timeline-item");
@@ -37,11 +66,11 @@ export default function Profile() {
       card.style.opacity = "0";
       card.style.transform = "translateY(30px)";
       card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-      observer.observe(card);
+      observerRef.current.observe(card);
     });
 
     const statNumbers = document.querySelectorAll(".stat-number");
-    statNumbers.forEach(stat => observer.observe(stat));
+    statNumbers.forEach(stat => observerRef.current.observe(stat));
   };
 
   const animateStatNumber = (element) => {
@@ -64,8 +93,17 @@ export default function Profile() {
 
   const animateNumber = (element, start, end, suffix, duration) => {
     const startTime = performance.now();
+    let animationFrameId;
 
     const update = (time) => {
+      // Check jika element masih ada di DOM
+      if (!element || !document.body.contains(element)) {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        return;
+      }
+
       const elapsed = time - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const ease = 1 - Math.pow(1 - progress, 3);
@@ -77,17 +115,23 @@ export default function Profile() {
 
       element.textContent = display + (suffix || "");
 
-      if (progress < 1) requestAnimationFrame(update);
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(update);
+      }
     };
 
-    requestAnimationFrame(update);
+    animationFrameId = requestAnimationFrame(update);
   };
 
   const handleCardClick = (className) => {
     const cards = document.querySelectorAll(`.${className}`);
     cards.forEach(card => {
       card.style.animation = "pulse 0.6s ease-in-out";
-      setTimeout(() => card.style.animation = "", 600);
+      setTimeout(() => {
+        if (card && document.body.contains(card)) {
+          card.style.animation = "";
+        }
+      }, 600);
     });
   };
 
@@ -102,7 +146,7 @@ export default function Profile() {
     <main className="profile-main">
       <section className="profile-hero-section">
         <div className="container">
-          <h1>Profile SmartCity</h1>
+          <h1>Profil SmartCity</h1>
           <p>
             Mengenal lebih dalam visi, misi, dan strategi pengembangan Kabupaten Tangerang
             sebagai kota pintar yang berkelanjutan.
@@ -186,11 +230,11 @@ export default function Profile() {
             >
               <h3>Misi</h3>
               <ul>
-                <li>Mengembangkan tata kelola pemerintahan yang cerdas dan transparan.</li>
-                <li>Meningkatkan kualitas pelayanan publik berbasis digital.</li>
-                <li>Mendorong pertumbuhan ekonomi kreatif dan inovatif.</li>
-                <li>Menciptakan lingkungan yang bersih dan berkelanjutan.</li>
-                <li>Memperkuat partisipasi masyarakat dalam pembangunan kota.</li>
+                <li><span className="mission-circle"></span>Mengembangkan tata kelola pemerintahan yang cerdas dan transparan.</li>
+                <li><span className="mission-circle"></span>Meningkatkan kualitas pelayanan publik berbasis digital.</li>
+                <li><span className="mission-circle"></span>Mendorong pertumbuhan ekonomi kreatif dan inovatif.</li>
+                <li><span className="mission-circle"></span>Menciptakan lingkungan yang bersih dan berkelanjutan.</li>
+                <li><span className="mission-circle"></span>Memperkuat partisipasi masyarakat dalam pembangunan kota.</li>
               </ul>
             </div>
           </div>

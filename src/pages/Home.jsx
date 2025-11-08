@@ -5,7 +5,7 @@ import "../styles/home_page.css";
 const dimensiData = {
   governance: {
     title: "Smart Governance",
-    description: "Smart Governance adalah tata kelola pemerintahan yang efektif dan transparan, memanfaatkan teknologi informasi untuk meningkatkan pelayanan publik, partisipasi warga, dan pengambilan keputusan berbasis data. Sistem ini memungkinkan pemerintah untuk memberikan layanan yang lebih cepat, akurat, dan mudah diakses oleh masyarakat melalui platform digital.",
+    description: "Smart Governance adalah tata kelola pemerintahan yang efektif dan transparan, memanfaatkan teknologi informasi untuk meningkatkan pelayanan publik, partisipasi warga, dan pengambilanutusan berbasis data. Sistem ini memungkinkan pemerintah untuk memberikan layanan yang lebih cepat, akurat, dan mudah diakses oleh masyarakat melalui platform digital.",
     details: [
       "Transparansi dan akuntabilitas pemerintah",
       "Layanan publik digital yang mudah diakses",
@@ -139,6 +139,15 @@ export default function Home() {
     }
   };
 
+  const handleExploreClick = () => {
+    navigate("/dimensi"); 
+  };
+
+  const handleVideoClick = () => {
+    // Ganti URL ini dengan link video YouTube atau link tujuan Anda
+    window.open("https://www.youtube.com/watch?v=VIDEO_ID", '_blank');
+  };
+
   return (
     <main className={`home-page ${isLoaded ? 'loaded' : ''}`}>
       {/* Hero Section */}
@@ -147,20 +156,20 @@ export default function Home() {
         <div className="hero-content">
           <h1>Selamat Datang di SmartCity<br />Kabupaten Tangerang</h1>
           <p>Mewujudkan Kabupaten Tangerang sebagai kota cerdas dan berkelanjutan</p>
-          <button className="btn-explore">Jelajahi Dimensi</button>
+          <button className="btn-explore" onClick={handleExploreClick}>Jelajahi Dimensi</button>
         </div>
       </section>
 
       {/* Features Section */}
       <section className="features-section">
         <div className="section-header">
-          <h2>Fitur Unggulan SmartCity</h2>
+          <h2>SmartCity Unggulan</h2>
           <p>Discover the innovative features that make our smart city initiative special</p>
         </div>
-        
+
         <div className="features-grid">
           {/* Row 1 */}
-          <div 
+          <div
             className="feature-card"
             tabIndex="0"
             role="button"
@@ -177,7 +186,7 @@ export default function Home() {
             <p>Tata kelola pemerintahan yang transparan dan efisien dengan dukungan teknologi digital</p>
           </div>
 
-          <div 
+          <div
             className="feature-card"
             tabIndex="0"
             role="button"
@@ -194,7 +203,7 @@ export default function Home() {
             <p>Lingkungan hunian yang nyaman, sehat, dan berkelanjutan untuk semua warga</p>
           </div>
 
-          <div 
+          <div
             className="feature-card"
             tabIndex="0"
             role="button"
@@ -213,7 +222,7 @@ export default function Home() {
           </div>
 
           {/* Row 2 */}
-          <div 
+          <div
             className="feature-card"
             tabIndex="0"
             role="button"
@@ -230,7 +239,7 @@ export default function Home() {
             <p>Ekonomi yang inovatif, kompetitif, dan berkelanjutan</p>
           </div>
 
-          <div 
+          <div
             className="feature-card"
             tabIndex="0"
             role="button"
@@ -249,7 +258,7 @@ export default function Home() {
             <p>Lingkungan yang lestari dan berkelanjutan</p>
           </div>
 
-          <div 
+          <div
             className="feature-card"
             tabIndex="0"
             role="button"
@@ -264,6 +273,29 @@ export default function Home() {
             </div>
             <h3>Smart Branding</h3>
             <p>Citra dan promosi kota yang menarik</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section - NEW */}
+      <section className="video-section">
+        <div className="video-container">
+          <div
+            className="video-card"
+            onClick={handleVideoClick}
+          >
+            <video
+              className="video-player"
+              autoPlay
+              loop
+              muted
+              playsInline
+              src="/videos/tangerang-smartcity.mp4"
+            />
+
+            <div className="video-overlay">
+              <h2 className="video-title">SmartCity Kab. Tangerang</h2>
+            </div>
           </div>
         </div>
       </section>

@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Menu, X, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/header.css';
 
 const Header = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const dropdownTimeoutRef = useRef(null);
+  const searchInputRef = useRef(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -36,6 +40,13 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Close dropdown if on profile page
+  useEffect(() => {
+    if (pathname === '/profile') {
+      setIsAboutDropdownOpen(false);
+    }
+  }, [pathname]);
+
   const toggleMobileMenu = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
@@ -52,7 +63,21 @@ const Header = () => {
       if (searchQuery.trim()) {
         console.log('Searching for:', searchQuery);
         setSearchQuery('');
+        setIsSearchExpanded(false);
       }
+    }
+  };
+
+  const toggleSearch = () => {
+    setIsSearchExpanded(!isSearchExpanded);
+    if (!isSearchExpanded) {
+      setTimeout(() => searchInputRef.current?.focus(), 100);
+    }
+  };
+
+  const handleSearchBlur = () => {
+    if (!searchQuery.trim()) {
+      setIsSearchExpanded(false);
     }
   };
 
@@ -97,41 +122,43 @@ const Header = () => {
 
           <nav className="desktop-nav">
             <ul>
-              <li><Link to="/" onClick={handleNavClick}>Beranda</Link></li>
+              <li><Link to="/" className={pathname === '/' ? 'active-nav-link' : ''} onClick={handleNavClick}>Beranda</Link></li>
 
               <li
                 className="dropdown"
                 onMouseEnter={handleDropdownMouseEnter}
                 onMouseLeave={handleDropdownMouseLeave}
               >
-                <a href="#" onClick={(e) => e.preventDefault()}>
+                <a href="#" className={isAboutDropdownOpen ? 'dropdown-active' : ''} onClick={(e) => e.preventDefault()}>
                   Tentang <ChevronDown className={`arrow-icon ${isAboutDropdownOpen ? 'rotated' : ''}`} size={16}/>
                 </a>
                 <div className={`dropdown-content ${isAboutDropdownOpen ? 'show' : ''}`}>
-                  <Link to="/profile" onClick={handleNavClick}>Profile</Link>
+                  <Link to="/profile" className={pathname === '/profile' ? 'active-nav-link' : ''} onClick={handleNavClick}>Profil</Link>
                 </div>
               </li>
 
-              <li><Link to="/event" onClick={handleNavClick}>City of Event</Link></li>
-              <li><Link to="/dimensi" onClick={handleNavClick}>Dimensi</Link></li>
-              <li><Link to="/publication" onClick={handleNavClick}>Publikasi</Link></li>
+              <li><Link to="/event" className={pathname === '/event' ? 'active-nav-link' : ''} onClick={handleNavClick}>City of Event</Link></li>
+              <li><Link to="/dimensi" className={pathname === '/dimensi' ? 'active-nav-link' : ''} onClick={handleNavClick}>Dimensi</Link></li>
+              <li><Link to="/publication" className={pathname === '/publication' ? 'active-nav-link' : ''} onClick={handleNavClick}>Publikasi</Link></li>
             </ul>
           </nav>
 
           <div className="header-controls">
-            <div className="search-container">
+            <div className={`search-container ${isSearchExpanded ? 'expanded' : ''}`}>
               <input
+                ref={searchInputRef}
                 type="text"
                 className="search-input"
                 placeholder="Cari..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={handleSearch}
+                onBlur={handleSearchBlur}
               />
               <button
                 type="button"
                 className="search-icon"
-                onClick={handleSearch}
+                onClick={isSearchExpanded ? handleSearch : toggleSearch}
                 aria-label="Search"
                 title="Search"
               >
@@ -154,20 +181,20 @@ const Header = () => {
       {/* Mobile Menu */}
       <nav className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
         <ul>
-          <li><Link to="/" onClick={handleNavClick}>Beranda</Link></li>
+          <li><Link to="/" className={pathname === '/' ? 'active-nav-link' : ''} onClick={handleNavClick}>Beranda</Link></li>
 
           <li className={`dropdown-mobile ${isAboutDropdownOpen ? 'open' : ''}`}>
-            <button type="button" className="dropbtn-mobile" onClick={toggleAboutDropdown}>
+            <button type="button" className={`dropbtn-mobile ${isAboutDropdownOpen ? 'dropdown-active' : ''}`} onClick={toggleAboutDropdown}>
               Tentang <ChevronDown className={`arrow-icon ${isAboutDropdownOpen ? 'rotated' : ''}`} size={16}/>
             </button>
             <div className="dropdown-content-mobile">
-              <Link to="/profile" onClick={handleNavClick}>Profile</Link>
+              <Link to="/profile" className={pathname === '/profile' ? 'active-nav-link' : ''} onClick={handleNavClick}>profil</Link>
             </div>
           </li>
 
-          <li><Link to="/event" onClick={handleNavClick}>City of Event</Link></li>
-          <li><Link to="/dimensi" onClick={handleNavClick}>Dimensi</Link></li>
-          <li><Link to="/publication" onClick={handleNavClick}>Publikasi</Link></li>
+          <li><Link to="/event" className={pathname === '/event' ? 'active-nav-link' : ''} onClick={handleNavClick}>City of Event</Link></li>
+          <li><Link to="/dimensi" className={pathname === '/dimensi' ? 'active-nav-link' : ''} onClick={handleNavClick}>Dimensi</Link></li>
+          <li><Link to="/publication" className={pathname === '/publication' ? 'active-nav-link' : ''} onClick={handleNavClick}>Publikasi</Link></li>
         </ul>
       </nav>
 

@@ -1,11 +1,10 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop"; 
-import "./App.css"; 
+import ScrollToTop from "./components/ScrollToTop";
+import "./App.css";
 
 import Layout from "./components/Layout";
-// LoadingSpinner tetap diimpor, tapi hanya digunakan untuk Fallback error/jika perlu di masa depan
-import LoadingSpinner from "./components/LoadingSpinner"; 
+import PageLoader from "./components/PageLoader.jsx";
 
 // Lazy imports untuk semua halaman
 const Home = lazy(() => import("./pages/Home.jsx"));
@@ -14,27 +13,28 @@ const Profile = lazy(() => import("./pages/Profile.jsx"));
 const Persona = lazy(() => import("./pages/Persona.jsx"));
 const Event = lazy(() => import("./pages/Event.jsx"));
 const Dimensi = lazy(() => import("./pages/Dimension.jsx"));
-const SmartGovernance = lazy(() => import("./pages/SmartGovernance.jsx"));
-const SmartLiving = lazy(() => import("./pages/SmartLiving.jsx"));
-const SmartSociety = lazy(() => import("./pages/SmartSociety.jsx"));
-const SmartEconomy = lazy(() => import("./pages/SmartEconomy.jsx"));
-const SmartEnvironment = lazy(() => import("./pages/SmartEnvironment.jsx"));
-const SmartBranding = lazy(() => import("./pages/SmartBranding.jsx"));
+const SmartGovernance = lazy(() => import("./pages/explore dimensions/SmartGovernance.jsx"));
+const SmartLiving = lazy(() => import("./pages/explore dimensions/SmartLiving.jsx"));
+const SmartSociety = lazy(() => import("./pages/explore dimensions/SmartSociety.jsx"));
+const SmartEconomy = lazy(() => import("./pages/explore dimensions/SmartEconomy.jsx"));
+const SmartEnvironment = lazy(() => import("./pages/explore dimensions/SmartEnvironment.jsx"));
+const SmartBranding = lazy(() => import("./pages/explore dimensions/SmartBranding.jsx"));
 const Publication = lazy(() => import("./pages/Publication.jsx"));
-const NotFound = lazy(() => import("./pages/NotFound.jsx"));
+const NotFound = lazy(() => import("./components/NotFound.jsx"));
 
 function App() {
+
   return (
-    <Router 
+    <Router
       future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ScrollToTop />
-      
-      {/* Suspense tunggal di sini. Fallback={null} karena Layout.jsx menangani visual loading */}
-      <Suspense fallback={null}> 
+
+      {/* Suspense dengan PageLoader sebagai fallback untuk semua lazy-loaded pages */}
+      <Suspense fallback={<PageLoader />}>
         <Routes>
           {/* LAYOUT ROUTE: Semua rute anak akan memiliki Header, Footer, dan Logika Transisi */}
           <Route element={<Layout />}>
-            
+
             {/* RUTE ANAK: Hanya panggil komponen Lazy Load */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -49,10 +49,11 @@ function App() {
             <Route path="/SmartEconomy" element={<SmartEconomy />} />
             <Route path="/SmartEnvironment" element={<SmartEnvironment />} />
             <Route path="/SmartBranding" element={<SmartBranding />} />
-            
-            {/* Rute 404/NotFound */}
-            <Route path="*" element={<NotFound />} />
+
           </Route>
+
+          {/* Rute 404/NotFound tanpa Layout (tanpa Header dan Footer) */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </Router>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, User, Eye, Clock } from 'lucide-react';
-import '../styles/smart_branding.css';
+import '../../styles/smart_branding.css';
 
 export default function SmartBranding() {
   const [selectedCategory, setSelectedCategory] = useState('semua');
@@ -24,8 +24,8 @@ export default function SmartBranding() {
       id: 2,
       title: 'Peran Media Sosial dalam Membangun Citra Kota Digital',
       excerpt: 'Strategi pemanfaatan platform digital untuk meningkatkan engagement publik dan mempromosikan destinasi unggulan daerah.',
-      category: 'artikel',
-      categoryLabel: 'ARTIKEL',
+      category: 'inovasi',
+      categoryLabel: 'INOVASI',
       date: '01 Desember 2025',
       author: 'Maya Sari, M.Sc.',
       views: '1450 views',
@@ -33,23 +33,11 @@ export default function SmartBranding() {
       image: '/images/social_media_strategy.jpg'
     },
     {
-      id: 3,
-      title: 'Pedoman Penggunaan Identitas Visual Smart City',
-      excerpt: 'Dokumen panduan resmi tentang cara menggunakan elemen branding Smart City oleh instansi pemerintah dan mitra swasta.',
-      category: 'panduan',
-      categoryLabel: 'PANDUAN',
-      date: '28 November 2025',
-      author: 'Biro Humas',
-      views: '980 views',
-      readTime: '6 min',
-      image: '/images/branding_launch.jpg'
-    },
-    {
       id: 4,
       title: 'Pemasaran Pariwisata Berbasis Data Digital (Big Data)',
       excerpt: 'Analisis big data digunakan untuk mengidentifikasi tren wisatawan dan menyusun kampanye pemasaran pariwisata yang lebih efektif.',
-      category: 'artikel',
-      categoryLabel: 'ARTIKEL',
+      category: 'inovasi',
+      categoryLabel: 'INOVASI',
       date: '20 November 2025',
       author: 'Dr. Taufik Hidayat',
       views: '1100 views',
@@ -67,27 +55,13 @@ export default function SmartBranding() {
       views: '1750 views',
       readTime: '5 min',
       image: '/images/branding_launch.jpg'
-    },
-    {
-      id: 6,
-      title: 'Workshop: Storytelling Digital untuk Promosi Daerah',
-      excerpt: 'Pelatihan intensif bagi pegiat kreatif lokal tentang cara membuat konten cerita yang menarik dan berdampak tinggi.',
-      category: 'acara',
-      categoryLabel: 'ACARA',
-      date: '10 November 2025',
-      author: 'Dinas Pariwisata',
-      views: '850 views',
-      readTime: '6 min',
-      image: '/images/social_media_strategy.jpg'
     }
   ];
 
   const categories = [
     { id: 'semua', label: 'Semua' },
     { id: 'berita', label: 'Berita' },
-    { id: 'artikel', label: 'Artikel' },
-    { id: 'panduan', label: 'Panduan' },
-    { id: 'acara', label: 'Acara' }
+    { id: 'inovasi', label: 'Inovasi' }
   ];
 
   const filteredArtikel = artikelData.filter(item => {
@@ -106,9 +80,7 @@ export default function SmartBranding() {
   const getCategoryClass = (category) => {
     const classes = {
       berita: 'badge-berita',
-      artikel: 'badge-artikel',
-      panduan: 'badge-panduan',
-      acara: 'badge-acara'
+      inovasi: 'badge-inovasi'
     };
     return classes[category] || 'badge-berita';
   };
@@ -154,44 +126,55 @@ export default function SmartBranding() {
                 <div className="branding-grid">
                   {paginatedArtikel.map(item => (
                     <article key={item.id} className="branding-card">
-                      <div className="branding-card-image">
-                        <img src={item.image} alt={item.title} />
-                        <span className={`branding-badge ${getCategoryClass(item.category)}`}>
-                          {item.categoryLabel}
-                        </span>
-                      </div>
-                      <div className="branding-card-body">
-                        <h2 className="branding-card-title">{item.title}</h2>
-                        <p className="branding-card-excerpt">{item.excerpt}</p>
-                        
-                        <div className="branding-card-meta">
-                          <div className="branding-meta-item">
-                            <Calendar size={14} />
-                            <span>{item.date}</span>
-                          </div>
-                          <div className="branding-meta-item">
-                            <User size={14} />
-                            <span>{item.author}</span>
-                          </div>
-                          <div className="branding-meta-item">
-                            <Eye size={14} />
-                            <span>{item.views}</span>
+                      {item.category === 'inovasi' ? (
+                        <div className="branding-card-image">
+                          <img src={item.image} alt={item.title} />
+                          <div className="branding-image-overlay">
+                            <span className="branding-overlay-text">(animasi)</span>
                           </div>
                         </div>
+                      ) : (
+                        <>
+                          <div className="branding-card-image">
+                            <img src={item.image} alt={item.title} />
+                            <span className={`branding-badge ${getCategoryClass(item.category)}`}>
+                              {item.categoryLabel}
+                            </span>
+                          </div>
+                          <div className="branding-card-body">
+                            <h2 className="branding-card-title">{item.title}</h2>
+                            <p className="branding-card-excerpt">{item.excerpt}</p>
 
-                        <div className="branding-card-footer">
-                          <div className="branding-read-time">
-                            <Clock size={14} />
-                            <span>{item.readTime}</span>
+                            <div className="branding-card-meta">
+                              <div className="branding-meta-item">
+                                <Calendar size={14} />
+                                <span>{item.date}</span>
+                              </div>
+                              <div className="branding-meta-item">
+                                <User size={14} />
+                                <span>{item.author}</span>
+                              </div>
+                              <div className="branding-meta-item">
+                                <Eye size={14} />
+                                <span>{item.views}</span>
+                              </div>
+                            </div>
+
+                            <div className="branding-card-footer">
+                              <div className="branding-read-time">
+                                <Clock size={14} />
+                                <span>{item.readTime}</span>
+                              </div>
+                              <a href={`#artikel/${item.id}`} className="branding-read-more">
+                                Baca Selengkapnya
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                              </a>
+                            </div>
                           </div>
-                          <a href={`#artikel/${item.id}`} className="branding-read-more">
-                            Baca Selengkapnya
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
+                        </>
+                      )}
                     </article>
                   ))}
                 </div>

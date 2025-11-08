@@ -1,7 +1,7 @@
-// src/components/LoadingSpinner.jsx
+// src/components/PageLoader.jsx
 
 import React from 'react';
-import '../styles/spinner.css'; 
+import '../styles/page_loader.css';
 
 // --- Komponen Dots (Internal) ---
 const RotatingDots = ({ size = 60, color }) => {
@@ -24,13 +24,24 @@ const RotatingDots = ({ size = 60, color }) => {
   );
 };
 
-
 // --- Komponen Wrapper (Diekspor) ---
-const LoadingSpinner = () => (
+const PageLoader = ({ fullscreen = false, message = "Memuat halaman..." }) => (
     // Menggunakan kelas CSS loading-spinner sebagai container layout
-    <div className="loading-spinner"> 
-        <RotatingDots size={70} /> 
+    // Tambahkan 'fullscreen' jika prop fullscreen true
+    <div className={`loading-spinner ${fullscreen ? 'fullscreen' : ''}`}>
+        <RotatingDots size={70} />
+        {message && (
+          <p style={{
+            marginTop: '16px',
+            color: '#711c5c',
+            fontSize: '16px',
+            fontWeight: '500',
+            textAlign: 'center'
+          }}>
+            {message}
+          </p>
+        )}
     </div>
 );
 
-export default LoadingSpinner;
+export default PageLoader;

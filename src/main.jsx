@@ -4,25 +4,7 @@ import './styles/index.css';
 import App from './App.jsx';
 
 // --- FUNGSI BARU: Sembunyikan preloader HTML setelah React siap ---
-const hideInitialLoader = () => {
-    const loader = document.getElementById('initial-loader');
-    if (loader) {
-        // 1. Tambahkan kelas fade-out untuk memicu transisi opacity (smooth fade)
-        // Kelas ini didefinisikan di index.html
-        loader.classList.add('fade-out');
-        
-        // 2. Hapus elemen dari DOM setelah transisi (sekitar 500ms) selesai
-        // Menggunakan transitionend memastikan penghapusan tepat waktu
-        loader.addEventListener('transitionend', () => {
-            loader.remove();
-        }, { once: true });
-        
-        // Fallback: Jika event transitionend gagal tereksekusi
-        setTimeout(() => {
-            if (loader && loader.parentElement) loader.remove();
-        }, 600); 
-    }
-};
+// (Fungsi ini tidak diperlukan lagi karena preloader dihapus dari index.html)
 
 // --- Performance monitoring dan error handling ---
 const initializeApp = () => {
@@ -194,9 +176,6 @@ const init = () => {
         initializeApp(); // Panggil fungsi inisialisasi React
         
         console.log('SmartCity App initialized successfully');
-        
-        // ✨ Panggil fungsi hide loader setelah aplikasi berhasil di-render
-        hideInitialLoader(); 
 
     } catch (error) {
         console.error('Failed to initialize app:', error);
@@ -234,8 +213,6 @@ const init = () => {
                 </div>
             `;
         }
-        
-        hideInitialLoader();
     }
 };
 

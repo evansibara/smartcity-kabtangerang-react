@@ -2,25 +2,50 @@
     Styles Khusus Loading Spinner (Rotating Dots)
 ==================================*/
 
-/* 1. Wrapper Container: Kini diposisikan secara absolut di tengah main-content */
-.loading-spinner {
-    position: absolute; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    
+/* 1. Wrapper Container: Untuk Suspense fallback (full screen overlay) */
+.loading-spinner.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    color: var(--theme-text, #333); 
-    z-index: 999; 
-    
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 2. Wrapper Container: Kini diposisikan secara absolut di tengah main-content (untuk Layout.jsx) */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--theme-text, #333);
+    z-index: 999;
+
     /* ✨ PENAMBAHAN UNTUK FADE IN/OUT (Smoothness) */
     opacity: 1; /* Pastikan opacity penuh saat dirender oleh React */
-    transition: opacity 0.4s ease-in-out; 
+    transition: opacity 0.4s ease-in-out;
     /* Transisi opacity 0.4s: memastikan komponen memudar (fade) saat mounting/unmounting */
+
+    /* Background putih blur */
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* 2. Spinner Utama: Rotating Dots */
@@ -35,10 +60,11 @@
 .loading-dots .dot {
     width: 16px;
     height: 16px;
-    background: var(--gradient-primary, #9e237c); 
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
     border-radius: 50%;
     position: absolute;
-    
+
     /* Durasi dan timing function dari revisi sebelumnya untuk gerakan dot yang halus */
     animation: rotate-dots 1.8s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
 }

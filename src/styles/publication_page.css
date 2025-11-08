@@ -117,7 +117,7 @@ html {
 
 .publikasi-document-header {
   padding: 30px 30px 20px;
-  border-bottom: 2px solid #8B2E85;
+  border-bottom: 2px solid var(--primary-200);
 }
 
 .publikasi-document-title {
@@ -160,8 +160,8 @@ html {
 }
 
 .publikasi-search-box:focus-within {
-  border-color: #8B2E85;
-  box-shadow: 0 0 0 3px rgba(139, 46, 133, 0.1);
+  border-color: var(--primary-200);
+  box-shadow: 0 0 0 3px var(--primary-100);
 }
 
 .publikasi-search-icon {
@@ -253,7 +253,7 @@ html {
 }
 
 .publikasi-file-icon {
-  color: #8B2E85;
+  color: var(--primary-200);
   flex-shrink: 0;
 }
 
@@ -261,7 +261,7 @@ html {
 .publikasi-download-btn {
   background: transparent;
   border: none;
-  color: #8B2E85;
+  color: var(--primary-200);
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
@@ -274,7 +274,7 @@ html {
 }
 
 .publikasi-download-btn:hover {
-  background: #8B2E85;
+  background: var(--primary-200);
   color: white;
   transform: translateY(-1px);
 }
@@ -289,7 +289,7 @@ html {
 }
 
 .publikasi-calendar-icon {
-  color: #8B2E85;
+  color: var(--primary-200);
   flex-shrink: 0;
 }
 

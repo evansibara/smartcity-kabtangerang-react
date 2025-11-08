@@ -80,7 +80,7 @@
 }
 
 .btn-explore {
-  background: linear-gradient(135deg, #711C5C, #A72583);
+  background: var(--gradient-primary);
   color: white;
   padding: 14px 40px;
   font-size: 1rem;
@@ -89,12 +89,57 @@
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(113, 28, 92, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
 }
 
 .btn-explore:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(113, 28, 92, 0.6);
+  box-shadow: 0 6px 20px var(--primary-100);
+}
+
+/* Video Section - NEW */
+.video-section {
+  padding: 80px 20px;
+  background-color: var(--theme-background);
+}
+
+.video-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.video-card {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 0 20px;
 }
 
 /* Features Section */
@@ -110,7 +155,10 @@
 
 .section-header h2 {
   font-size: 2.2rem;
-  color: #9E237C;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 12px;
   font-weight: 700;
 }
@@ -148,7 +196,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(158, 35, 124, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(37, 117, 252, 0.1), transparent);
   transition: left 0.5s;
 }
 
@@ -158,14 +206,15 @@
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(158, 35, 124, 0.2);
-  border-color: #9E237C;
+  box-shadow: 0 8px 20px var(--primary-200);
+  border-color: var(--primary-200);
 }
 
 .feature-card:focus {
-  outline: 3px solid #9E237C;
+  outline: 3px solid var(--primary-200);
   outline-offset: 2px;
   transform: translateY(-5px);
+  box-shadow: none;
 }
 
 .feature-icon {
@@ -177,13 +226,13 @@
   align-items: center;
   justify-content: center;
   color: white;
-  background: linear-gradient(135deg, #711C5C, #A72583);
+  background: var(--gradient-primary);
   transition: all 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
   transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(113, 28, 92, 0.4);
+  box-shadow: 0 8px 25px var(--primary-100);
 }
 
 .feature-card h3 {
@@ -201,7 +250,7 @@
 }
 
 .feature-card:hover p {
-  color: #9E237C;
+  color: var(--primary-200);
 }
 
 /* Stats Section */
@@ -219,31 +268,35 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #711C5C, #A72583);
+  background: var(--gradient-primary);
   padding: 35px 20px;
   border-radius: 12px;
   text-align: center;
   color: white;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(113, 28, 92, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(113, 28, 92, 0.4);
+  box-shadow: 0 8px 25px var(--primary-100);
 }
 
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 8px;
+.stats-section .stat-number {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 8px !important;
   color: #ffffff !important;
+  background: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
 }
 
-.stat-label {
-  font-size: 1rem;
-  opacity: 1;
-  font-weight: 500;
+.stats-section .stat-label {
+  font-size: 1rem !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
   color: #ffffff !important;
 }
 
@@ -299,13 +352,13 @@
 
 .close:hover,
 .close:focus {
-  color: #9E237C;
-  outline: 2px solid #9E237C;
+  color: var(--primary-200);
+  outline: 2px solid var(--primary-200);
   outline-offset: 2px;
 }
 
 .modal-content h3 {
-  color: #9E237C;
+  color: var(--primary-200);
   font-size: 2rem;
   margin-bottom: 15px;
   font-weight: 600;
@@ -325,7 +378,7 @@
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 30px;
-  border-left: 4px solid #9E237C;
+  border-left: 4px solid var(--primary-200);
 }
 
 .modal-content .modal-details h4 {
@@ -354,7 +407,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #9E237C;
+  color: var(--primary-200);
   font-weight: bold;
 }
 
@@ -380,14 +433,14 @@
 }
 
 .modal-btn-primary {
-  background: linear-gradient(135deg, #711C5C, #A72583);
+  background: var(--gradient-primary);
   color: white;
-  box-shadow: 0 4px 15px rgba(113, 28, 92, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
 }
 
 .modal-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(113, 28, 92, 0.4);
+  box-shadow: 0 6px 20px var(--primary-100);
 }
 
 .modal-btn-primary:active {
@@ -396,12 +449,12 @@
 
 .modal-btn-secondary {
   background: white;
-  color: #9E237C;
-  border: 2px solid #9E237C;
+  color: var(--primary-200);
+  border: 2px solid var(--primary-200);
 }
 
 .modal-btn-secondary:hover {
-  background: #9E237C;
+  background: var(--primary-200);
   color: white;
   transform: translateY(-2px);
 }
@@ -419,6 +472,10 @@
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .video-title {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -428,6 +485,18 @@
   
   .hero-content p {
     font-size: 1rem;
+  }
+
+  .video-section {
+    padding: 60px 15px;
+  }
+
+  .video-card {
+    border-radius: 15px;
+  }
+
+  .video-title {
+    font-size: 2rem;
   }
   
   .features-section {
@@ -448,8 +517,8 @@
     gap: 15px;
   }
   
-  .stat-number {
-    font-size: 2rem;
+  .stats-section .stat-number {
+    font-size: 2rem !important;
   }
 
   .modal-content {
@@ -500,6 +569,14 @@
     padding: 12px 30px;
     font-size: 0.95rem;
   }
+
+  .video-section {
+    padding: 40px 15px;
+  }
+
+  .video-title {
+    font-size: 1.5rem;
+  }
   
   .feature-card {
     padding: 30px 20px;
@@ -514,12 +591,12 @@
     padding: 25px 15px;
   }
   
-  .stat-number {
-    font-size: 1.8rem;
+  .stats-section .stat-number {
+    font-size: 1.8rem !important;
   }
   
-  .stat-label {
-    font-size: 0.9rem;
+  .stats-section .stat-label {
+    font-size: 0.9rem !important;
   }
 
   .modal-content {
@@ -548,6 +625,14 @@
   }
   
   .feature-card:active {
+    transform: scale(0.98);
+  }
+
+  .video-card:hover {
+    transform: none;
+  }
+
+  .video-card:active {
     transform: scale(0.98);
   }
 }

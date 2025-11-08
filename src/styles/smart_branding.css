@@ -14,7 +14,7 @@ body {
 }
 
 .branding-hero {
-  background: linear-gradient(135deg, #711C5C 0%, #9E237C 64%, #A72583 100%);
+  background: var(--gradient-primary);
   padding: 80px 20px 60px;
   text-align: center;
   color: white;
@@ -155,14 +155,14 @@ body {
 }
 
 .branding-category-btn:hover {
-  border-color: #9E237C;
+  border-color: var(--primary-200);
   background: #faf5ff;
   transform: translateX(4px);
 }
 
 .branding-category-btn.active {
-  background: linear-gradient(90deg, #711C5C 0%, #9E237C 64%, #A72583 100%);
-  border-color: #9E237C;
+  background: var(--gradient-primary);
+  border-color: var(--primary-200);
   color: white;
   box-shadow: 0 4px 12px rgba(113, 28, 92, 0.3);
 }
@@ -276,7 +276,7 @@ body {
 }
 
 .badge-artikel {
-  background: linear-gradient(90deg, #711C5C 0%, #9E237C 64%, #A72583 100%);
+  background: var(--gradient-primary);
   color: white;
 }
 
@@ -341,7 +341,7 @@ body {
 }
 
 .branding-meta-item svg {
-  color: #9E237C;
+  color: var(--primary-200);
   flex-shrink: 0;
 }
 
@@ -361,14 +361,14 @@ body {
 }
 
 .branding-read-time svg {
-  color: #9E237C;
+  color: var(--primary-200);
 }
 
 .branding-read-more {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #9E237C;
+  color: var(--primary-200);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
@@ -376,7 +376,7 @@ body {
 }
 
 .branding-read-more:hover {
-  color: #711C5C;
+  color: var(--primary-100);
   transform: translateX(4px);
 }
 
@@ -421,8 +421,8 @@ body {
 }
 
 .branding-pagination-btn:hover:not(:disabled) {
-  background: linear-gradient(90deg, #711C5C 0%, #9E237C 64%, #A72583 100%);
-  border-color: #9E237C;
+  background: var(--gradient-primary);
+  border-color: var(--primary-200);
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(113, 28, 92, 0.3);
@@ -457,13 +457,13 @@ body {
 }
 
 .branding-pagination-number:hover {
-  border-color: #9E237C;
-  color: #9E237C;
+  border-color: var(--primary-200);
+  color: var(--primary-200);
 }
 
 .branding-pagination-number.active {
-  background: linear-gradient(90deg, #711C5C 0%, #9E237C 64%, #A72583 100%);
-  border-color: #9E237C;
+  background: var(--gradient-primary);
+  border-color: var(--primary-200);
   color: white;
   box-shadow: 0 4px 8px rgba(113, 28, 92, 0.3);
 }

@@ -74,7 +74,7 @@ html, body {
 .dimensi-content-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #9E237C;
+    color: var(--primary-200);
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -117,7 +117,7 @@ html, body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(158, 35, 124, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(37, 117, 252, 0.1), transparent);
     transition: left 0.5s;
 }
 
@@ -127,14 +127,15 @@ html, body {
 
 .dimensi-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(158, 35, 124, 0.2);
-    border-color: #9E237C;
+    box-shadow: 0 15px 35px rgba(37, 117, 252, 0.2);
+    border-color: var(--primary-200);
 }
 
 .dimensi-card:focus {
-    outline: 3px solid #9E237C;
+    outline: 3px solid var(--primary-200);
     outline-offset: 2px;
     transform: translateY(-5px);
+    box-shadow: none;
 }
 
 .card-icon {
@@ -144,15 +145,15 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #711C5C, #A72583);
+    background: var(--gradient-primary);
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(113, 28, 92, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
     transition: all 0.3s ease;
 }
 
 .dimensi-card:hover .card-icon {
     transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(113, 28, 92, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 114, 255, 0.4);
 }
 
 .card-icon img,
@@ -190,38 +191,38 @@ html, body {
 }
 
 .dimensi-card:hover p {
-    color: #9E237C;
+    color: var(--primary-200);
 }
 
-/* Warna icon untuk setiap dimensi - menggunakan gradient purple/magenta */
+/* Warna icon untuk setiap dimensi - menggunakan gradient primary */
 .dimensi-card:nth-child(1) .card-icon {
-    background: linear-gradient(135deg, #711C5C, #9E237C);
-    box-shadow: 0 5px 15px rgba(113, 28, 92, 0.3);
+    background: var(--gradient-primary);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
 }
 
 .dimensi-card:nth-child(2) .card-icon {
-    background: linear-gradient(135deg, #8B2668, #A72583);
-    box-shadow: 0 5px 15px rgba(139, 38, 104, 0.3);
+    background: var(--gradient-primary);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
 }
 
 .dimensi-card:nth-child(3) .card-icon {
-    background: linear-gradient(135deg, #9E237C, #B02C8F);
-    box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
+    background: var(--gradient-primary);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
 }
 
 .dimensi-card:nth-child(4) .card-icon {
-    background: linear-gradient(135deg, #711C5C, #9E237C);
-    box-shadow: 0 5px 15px rgba(113, 28, 92, 0.3);
+    background: var(--gradient-primary);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
 }
 
 .dimensi-card:nth-child(5) .card-icon {
-    background: linear-gradient(135deg, #8B2668, #A72583);
-    box-shadow: 0 5px 15px rgba(139, 38, 104, 0.3);
+    background: var(--gradient-primary);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
 }
 
 .dimensi-card:nth-child(6) .card-icon {
-    background: linear-gradient(135deg, #9E237C, #B02C8F);
-    box-shadow: 0 5px 15px rgba(158, 35, 124, 0.3);
+    background: var(--gradient-primary);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
 }
 
 .modal {
@@ -275,13 +276,13 @@ html, body {
 
 .close:hover,
 .close:focus {
-    color: #9E237C;
-    outline: 2px solid #9E237C;
+    color: var(--primary-200);
+    outline: 2px solid var(--primary-200);
     outline-offset: 2px;
 }
 
 .modal-content h3 {
-    color: #9E237C;
+    color: var(--primary-200);
     font-size: 2rem;
     margin-bottom: 15px;
     font-weight: 600;
@@ -301,7 +302,7 @@ html, body {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
-    border-left: 4px solid #9E237C;
+    border-left: 4px solid var(--primary-200);
 }
 
 .modal-content .modal-details h4 {
@@ -330,7 +331,7 @@ html, body {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #9E237C;
+    color: var(--primary-200);
     font-weight: bold;
 }
 
@@ -356,14 +357,14 @@ html, body {
 }
 
 .modal-btn-primary {
-    background: linear-gradient(135deg, #711C5C, #A72583);
+    background: var(--gradient-primary);
     color: white;
-    box-shadow: 0 4px 15px rgba(113, 28, 92, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
 }
 
 .modal-btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(113, 28, 92, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 114, 255, 0.4);
 }
 
 .modal-btn-primary:active {
@@ -372,12 +373,12 @@ html, body {
 
 .modal-btn-secondary {
     background: white;
-    color: #9E237C;
-    border: 2px solid #9E237C;
+    color: var(--primary-200);
+    border: 2px solid var(--primary-200);
 }
 
 .modal-btn-secondary:hover {
-    background: #9E237C;
+    background: var(--primary-200);
     color: white;
     transform: translateY(-2px);
 }

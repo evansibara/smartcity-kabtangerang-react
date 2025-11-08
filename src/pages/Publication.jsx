@@ -64,6 +64,11 @@ export default function Publikasi() {
     window.open(fileUrl, '_blank');
   };
 
+  const handleReview = (fileUrl) => {
+    // Handle PDF review - open in new tab for viewing
+    window.open(fileUrl, '_blank');
+  };
+
   return (
     <div className="publikasi-container">
       {/* Hero Section */}
@@ -111,7 +116,13 @@ export default function Publikasi() {
                         <td>
                           <div className="publikasi-title-cell">
                             <FileText className="publikasi-file-icon" size={18} />
-                            <span>{item.title}</span>
+                            <span
+                              className="publikasi-title-link"
+                              onClick={() => handleReview(item.fileUrl)}
+                              style={{ cursor: 'pointer', color: '#007bff', textDecoration: 'underline' }}
+                            >
+                              {item.title}
+                            </span>
                           </div>
                         </td>
                         <td>

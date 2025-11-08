@@ -8,7 +8,7 @@ import Footer from "./Footer.jsx";
 // Impor komponen modular
 import ErrorBoundary from "./ErrorBoundary.jsx";
 import BackToTopButton from "./BackToTopButton.jsx";
-import LoadingSpinner from "./LoadingSpinner.jsx"; 
+import PageLoader from "./PageLoader.jsx";
 
 // Import CSS Layout
 import "../styles/layout.css"; 
@@ -77,7 +77,7 @@ export default function Layout() {
           <Outlet /> 
           
           {/* Spinner ini akan muncul di tengah main content saat isLoading */}
-          {isLoading && <LoadingSpinner />} 
+          {isLoading && <PageLoader />}
         </main>
         
         <Footer />

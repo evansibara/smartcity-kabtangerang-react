@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, User, Eye, Clock } from 'lucide-react';
-import '../styles/smart_governance.css';
+import '../../styles/smart_governance.css';
 
 export default function SmartGovernance() {
   const [selectedCategory, setSelectedCategory] = useState('semua');
@@ -24,8 +24,8 @@ export default function SmartGovernance() {
       id: 2,
       title: 'Integrasi Teknologi IoT di Sistem Transportasi Tangerang',
       excerpt: 'Implementasi sensor IoT membantu monitoring real-time kondisi jalan dan kemacetan di berbagai titik Kabupaten Tangerang.',
-      category: 'artikel',
-      categoryLabel: 'ARTIKEL',
+      category: 'inovasi',
+      categoryLabel: 'INOVASI',
       date: '12 Oktober 2025',
       author: 'Budi Santoso',
       views: '980 views',
@@ -33,23 +33,11 @@ export default function SmartGovernance() {
       image: '/images/background_meeting.jpg'
     },
     {
-      id: 3,
-      title: 'Panduan Penggunaan Aplikasi SmartCity untuk Masyarakat',
-      excerpt: 'Langkah demi langkah cara menggunakan aplikasi SmartCity untuk mengakses berbagai layanan publik digital dengan mudah.',
-      category: 'panduan',
-      categoryLabel: 'PANDUAN',
-      date: '10 Oktober 2025',
-      author: 'Tim Komunikasi',
-      views: '756 views',
-      readTime: '10 min',
-      image: '/images/cityscape_background.jpg'
-    },
-    {
       id: 4,
       title: 'Keamanan Data Warga dalam Platform SmartCity',
       excerpt: 'Enkripsi tingkat tinggi dan protokol keamanan berlapis menjamin privasi data pengguna di SmartCity Kabupaten Tangerang.',
-      category: 'artikel',
-      categoryLabel: 'ARTIKEL',
+      category: 'inovasi',
+      categoryLabel: 'INOVASI',
       date: '08 Oktober 2025',
       author: 'Dr. Rini Wijaya',
       views: '645 views',
@@ -67,27 +55,13 @@ export default function SmartGovernance() {
       views: '1100 views',
       readTime: '4 min',
       image: '/images/cityscape_background.jpg'
-    },
-    {
-      id: 6,
-      title: 'Workshop Smart City untuk Aparatur Pemerintah',
-      excerpt: 'Program pelatihan intensif untuk meningkatkan kompetensi aparatur dalam mengoperasikan sistem SmartCity secara optimal.',
-      category: 'acara',
-      categoryLabel: 'ACARA',
-      date: '01 Oktober 2025',
-      author: 'Biro Pengembangan',
-      views: '523 views',
-      readTime: '8 min',
-      image: '/images/background_meeting.jpg'
     }
   ];
 
   const categories = [
     { id: 'semua', label: 'Semua' },
     { id: 'berita', label: 'Berita' },
-    { id: 'artikel', label: 'Artikel' },
-    { id: 'panduan', label: 'Panduan' },
-    { id: 'acara', label: 'Acara' }
+    { id: 'inovasi', label: 'Inovasi' }
   ];
 
   const filteredArtikel = artikelData.filter(item => {
@@ -106,9 +80,7 @@ export default function SmartGovernance() {
   const getCategoryClass = (category) => {
     const classes = {
       berita: 'badge-berita',
-      artikel: 'badge-artikel',
-      panduan: 'badge-panduan',
-      acara: 'badge-acara'
+      inovasi: 'badge-inovasi'
     };
     return classes[category] || 'badge-berita';
   };
@@ -154,44 +126,55 @@ export default function SmartGovernance() {
                 <div className="governance-grid">
                   {paginatedArtikel.map(item => (
                     <article key={item.id} className="governance-card">
-                      <div className="governance-card-image">
-                        <img src={item.image} alt={item.title} />
-                        <span className={`governance-badge ${getCategoryClass(item.category)}`}>
-                          {item.categoryLabel}
-                        </span>
-                      </div>
-                      <div className="governance-card-body">
-                        <h2 className="governance-card-title">{item.title}</h2>
-                        <p className="governance-card-excerpt">{item.excerpt}</p>
-                        
-                        <div className="governance-card-meta">
-                          <div className="governance-meta-item">
-                            <Calendar size={14} />
-                            <span>{item.date}</span>
-                          </div>
-                          <div className="governance-meta-item">
-                            <User size={14} />
-                            <span>{item.author}</span>
-                          </div>
-                          <div className="governance-meta-item">
-                            <Eye size={14} />
-                            <span>{item.views}</span>
+                      {item.category === 'inovasi' ? (
+                        <div className="governance-card-image">
+                          <img src={item.image} alt={item.title} />
+                          <div className="governance-image-overlay">
+                            <span className="governance-overlay-text">(animasi)</span>
                           </div>
                         </div>
+                      ) : (
+                        <>
+                          <div className="governance-card-image">
+                            <img src={item.image} alt={item.title} />
+                            <span className={`governance-badge ${getCategoryClass(item.category)}`}>
+                              {item.categoryLabel}
+                            </span>
+                          </div>
+                          <div className="governance-card-body">
+                            <h2 className="governance-card-title">{item.title}</h2>
+                            <p className="governance-card-excerpt">{item.excerpt}</p>
 
-                        <div className="governance-card-footer">
-                          <div className="governance-read-time">
-                            <Clock size={14} />
-                            <span>{item.readTime}</span>
+                            <div className="governance-card-meta">
+                              <div className="governance-meta-item">
+                                <Calendar size={14} />
+                                <span>{item.date}</span>
+                              </div>
+                              <div className="governance-meta-item">
+                                <User size={14} />
+                                <span>{item.author}</span>
+                              </div>
+                              <div className="governance-meta-item">
+                                <Eye size={14} />
+                                <span>{item.views}</span>
+                              </div>
+                            </div>
+
+                            <div className="governance-card-footer">
+                              <div className="governance-read-time">
+                                <Clock size={14} />
+                                <span>{item.readTime}</span>
+                              </div>
+                              <a href={`#artikel/${item.id}`} className="governance-read-more">
+                                Baca Selengkapnya
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                              </a>
+                            </div>
                           </div>
-                          <a href={`#artikel/${item.id}`} className="governance-read-more">
-                            Baca Selengkapnya
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
+                        </>
+                      )}
                     </article>
                   ))}
                 </div>

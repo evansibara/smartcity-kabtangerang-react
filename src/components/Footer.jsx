@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Mail, Phone } from 'lucide-react';
 import "../styles/footer.css";
 
 // Komponen SVG untuk TikTok
@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="footer-section links">
           <h3>Tautan Cepat</h3>
           <ul>
-            <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/profile">profil</Link></li>
             <li><Link to="/dimensi">Dimensi</Link></li>
             <li><Link to="/event">Event</Link></li>
             <li><Link to="/publication">Publikasi</Link></li>
@@ -39,19 +39,28 @@ const Footer = () => {
         
         <div className="footer-section contact">
           <h3>Kontak Kami</h3>
-          <p>
-            Jl. H. Somawinata No.1, Kadu Agung, Kec. Tigaraksa, 
-            Kabupaten Tangerang, Banten 15119
-          </p>
-          <p>Email: diskominfo@tangerangkab.go.id</p>
-          <p>Telepon: (021) 5523456</p>
+          <div className="contact-item">
+            <MapPin size={18} />
+            <p>
+              Jl. H. Somawinata No.5, Kadu Agung, Kec. Tigaraksa,
+              Kabupaten Tangerang, Banten 15119
+            </p>
+          </div>
+          <div className="contact-item">
+            <Mail size={18} />
+            <p>Email: diskominfo@tangerangkab.go.id</p>
+          </div>
+          <div className="contact-item">
+            <Phone size={18} />
+            <p>Telepon: (021) 5523456</p>
+          </div>
         </div>
         
         <div className="footer-section socials">
           <h3>Ikuti Kami</h3>
           <div className="social-icons">
             <a 
-              href="https://facebook.com/tangerangkab" 
+              href="https://www.facebook.com/pemkabtangerang" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Facebook" 
@@ -60,7 +69,7 @@ const Footer = () => {
               <Facebook size={22} />
             </a>
             <a 
-              href="https://twitter.com/tangerangkab" 
+              href="https://x.com/pemkabtangerang" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Twitter" 
@@ -69,7 +78,7 @@ const Footer = () => {
               <Twitter size={22} />
             </a>
             <a 
-              href="https://instagram.com/tangerangkab" 
+              href="https://www.instagram.com/pemkabtangerang" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Instagram" 
@@ -78,7 +87,7 @@ const Footer = () => {
               <Instagram size={22} />
             </a>
             <a 
-              href="https://youtube.com/tangerangkab" 
+              href="https://www.youtube.com/@pemkabtangerang" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Youtube" 
@@ -87,7 +96,7 @@ const Footer = () => {
               <Youtube size={22} />
             </a>
             <a 
-              href="https://tiktok.com/@tangerangkab" 
+              href="https://www.tiktok.com/@pemkabtangerang" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="TikTok" 

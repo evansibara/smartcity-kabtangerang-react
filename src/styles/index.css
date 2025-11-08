@@ -1,22 +1,22 @@
 /* ===============================
     Custom Global Style - SmartCity
 ==================================*/
-
 * {
   box-sizing: border-box; 
 } 
 
 :root {
   /* -- Warna Merek -- */
-  --primary-100: #711c5c; 
-  --primary-200: #9e237c; 
-  --primary-300: #a72583; 
+  --primary-100: #0072FF;
+  --primary-200: #2575FC;
+  --primary-300: #4EDCFF;
+  --primary-white: #ffffff;
   --gradient-primary: linear-gradient(90deg, var(--primary-100) 0%, var(--primary-200) 64%, var(--primary-300) 100%);
   
   /* -- Variabel Tema (Default = Terang) -- */
   --text-dark: #1f1f1f;
   --text-light: #f9f9f9;
-  --bg-light: #f5f5f7;
+  --bg-light: #ffffff;
   --theme-text: var(--text-dark);      
   --theme-background: var(--bg-light); 
   --theme-card-bg: white;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, User, Eye, Clock } from 'lucide-react';
-import '../styles/smart_environment.css';
+import '../../styles/smart_environment.css';
 
 export default function SmartEnvironment() {
   const [selectedCategory, setSelectedCategory] = useState('semua');
@@ -24,8 +24,8 @@ export default function SmartEnvironment() {
       id: 2,
       title: 'Optimalisasi Pengelolaan Sampah dengan Teknologi Smart Bin',
       excerpt: 'Implementasi tempat sampah pintar (Smart Bin) yang memberikan notifikasi otomatis saat penuh untuk efisiensi pengumpulan sampah.',
-      category: 'artikel',
-      categoryLabel: 'ARTIKEL',
+      category: 'inovasi',
+      categoryLabel: 'INOVASI',
       date: '05 Desember 2025',
       author: 'Prof. Tania Dewi',
       views: '1050 views',
@@ -33,23 +33,11 @@ export default function SmartEnvironment() {
       image: '/images/smart_waste_management.jpg'
     },
     {
-      id: 3,
-      title: 'Panduan Penggunaan Aplikasi Lapor Polusi untuk Warga',
-      excerpt: 'Langkah-langkah melaporkan temuan polusi lingkungan di sekitar Anda menggunakan aplikasi digital pemerintah daerah.',
-      category: 'panduan',
-      categoryLabel: 'PANDUAN',
-      date: '01 Desember 2025',
-      author: 'Tim Komunitas Hijau',
-      views: '880 views',
-      readTime: '6 min',
-      image: '/images/air_quality_sensor.jpg'
-    },
-    {
       id: 4,
       title: 'Konservasi Air Pintar Melalui Irigasi Otomatis IoT',
       excerpt: 'Penerapan sistem irigasi berbasis IoT untuk menghemat penggunaan air pada lahan pertanian dan ruang hijau kota.',
-      category: 'artikel',
-      categoryLabel: 'ARTIKEL',
+      category: 'inovasi',
+      categoryLabel: 'INOVASI',
       date: '25 November 2025',
       author: 'Dr. Eko Prasetyo',
       views: '920 views',
@@ -67,27 +55,13 @@ export default function SmartEnvironment() {
       views: '1150 views',
       readTime: '4 min',
       image: '/images/air_quality_sensor.jpg'
-    },
-    {
-      id: 6,
-      title: 'Webinar: Energi Terbarukan untuk Masa Depan Kota',
-      excerpt: 'Acara edukasi mengenai pentingnya transisi ke sumber energi terbarukan dan proyek percontohan di Kabupaten Tangerang.',
-      category: 'acara',
-      categoryLabel: 'ACARA',
-      date: '15 November 2025',
-      author: 'Dinas Energi',
-      views: '650 views',
-      readTime: '8 min',
-      image: '/images/smart_waste_management.jpg'
     }
   ];
 
   const categories = [
     { id: 'semua', label: 'Semua' },
     { id: 'berita', label: 'Berita' },
-    { id: 'artikel', label: 'Artikel' },
-    { id: 'panduan', label: 'Panduan' },
-    { id: 'acara', label: 'Acara' }
+    { id: 'inovasi', label: 'Inovasi' }
   ];
 
   const filteredArtikel = artikelData.filter(item => {
@@ -106,9 +80,7 @@ export default function SmartEnvironment() {
   const getCategoryClass = (category) => {
     const classes = {
       berita: 'badge-berita',
-      artikel: 'badge-artikel',
-      panduan: 'badge-panduan',
-      acara: 'badge-acara'
+      inovasi: 'badge-inovasi'
     };
     return classes[category] || 'badge-berita';
   };
@@ -154,44 +126,55 @@ export default function SmartEnvironment() {
                 <div className="environment-grid">
                   {paginatedArtikel.map(item => (
                     <article key={item.id} className="environment-card">
-                      <div className="environment-card-image">
-                        <img src={item.image} alt={item.title} />
-                        <span className={`environment-badge ${getCategoryClass(item.category)}`}>
-                          {item.categoryLabel}
-                        </span>
-                      </div>
-                      <div className="environment-card-body">
-                        <h2 className="environment-card-title">{item.title}</h2>
-                        <p className="environment-card-excerpt">{item.excerpt}</p>
-                        
-                        <div className="environment-card-meta">
-                          <div className="environment-meta-item">
-                            <Calendar size={14} />
-                            <span>{item.date}</span>
-                          </div>
-                          <div className="environment-meta-item">
-                            <User size={14} />
-                            <span>{item.author}</span>
-                          </div>
-                          <div className="environment-meta-item">
-                            <Eye size={14} />
-                            <span>{item.views}</span>
+                      {item.category === 'inovasi' ? (
+                        <div className="environment-card-image">
+                          <img src={item.image} alt={item.title} />
+                          <div className="environment-image-overlay">
+                            <span className="environment-overlay-text">(animasi)</span>
                           </div>
                         </div>
+                      ) : (
+                        <>
+                          <div className="environment-card-image">
+                            <img src={item.image} alt={item.title} />
+                            <span className={`environment-badge ${getCategoryClass(item.category)}`}>
+                              {item.categoryLabel}
+                            </span>
+                          </div>
+                          <div className="environment-card-body">
+                            <h2 className="environment-card-title">{item.title}</h2>
+                            <p className="environment-card-excerpt">{item.excerpt}</p>
 
-                        <div className="environment-card-footer">
-                          <div className="environment-read-time">
-                            <Clock size={14} />
-                            <span>{item.readTime}</span>
+                            <div className="environment-card-meta">
+                              <div className="environment-meta-item">
+                                <Calendar size={14} />
+                                <span>{item.date}</span>
+                              </div>
+                              <div className="environment-meta-item">
+                                <User size={14} />
+                                <span>{item.author}</span>
+                              </div>
+                              <div className="environment-meta-item">
+                                <Eye size={14} />
+                                <span>{item.views}</span>
+                              </div>
+                            </div>
+
+                            <div className="environment-card-footer">
+                              <div className="environment-read-time">
+                                <Clock size={14} />
+                                <span>{item.readTime}</span>
+                              </div>
+                              <a href={`#artikel/${item.id}`} className="environment-read-more">
+                                Baca Selengkapnya
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                              </a>
+                            </div>
                           </div>
-                          <a href={`#artikel/${item.id}`} className="environment-read-more">
-                            Baca Selengkapnya
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
+                        </>
+                      )}
                     </article>
                   ))}
                 </div>
