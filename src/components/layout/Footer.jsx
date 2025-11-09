@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Mail, Phone } from 'lucide-react';
-import "../styles/footer.css";
+import "../../styles/components/footer.css";
 
 // Komponen SVG untuk TikTok
 const TikTokIcon = () => (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/dimension_page.css";
+import "../styles/pages/dimension_page.css";
 
 const dimensiData = {
     governance: {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import '../styles/header.css';
+import '../../styles/components/header.css';
 
 const Header = () => {
   const location = useLocation();

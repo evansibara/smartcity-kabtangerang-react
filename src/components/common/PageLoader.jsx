@@ -1,7 +1,7 @@
 // src/components/PageLoader.jsx
 
 import React from 'react';
-import '../styles/page_loader.css';
+import '../../styles/components/page_loader.css';
 
 // --- Komponen Dots (Internal) ---
 const RotatingDots = ({ size = 60, color }) => {

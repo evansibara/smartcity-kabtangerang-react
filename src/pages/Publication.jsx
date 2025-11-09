@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, Calendar, Download, FileText } from 'lucide-react';
-import '../styles/publication_page.css';
+import '../styles/pages/publication_page.css';
 
 export default function Publikasi() {
   const [searchTerm, setSearchTerm] = useState('');

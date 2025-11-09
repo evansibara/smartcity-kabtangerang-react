@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/event_page.css'; 
+import '../styles/pages/event_page.css';
 
 const CALENDAR_IMAGE_URL = '/path/to/calendar_of_events_2024.jpg';
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "../styles/profile_page.css";
+import "../styles/pages/profile_page.css";
 
 export default function Profile() {
   const observerRef = useRef(null);

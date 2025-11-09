@@ -6,12 +6,12 @@ import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 
 // Impor komponen modular
-import ErrorBoundary from "./ErrorBoundary.jsx";
-import BackToTopButton from "./BackToTopButton.jsx";
-import PageLoader from "./PageLoader.jsx";
+import ErrorBoundary from "../common/ErrorBoundary.jsx";
+import BackToTopButton from "../common/BackToTopButton.jsx";
+import PageLoader from "../common/PageLoader.jsx";
 
 // Import CSS Layout
-import "../styles/layout.css"; 
+import "../../styles/base/layout.css";
 
 export default function Layout() {
   const [isLoading, setIsLoading] = useState(false);
