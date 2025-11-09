@@ -34,24 +34,6 @@
   pointer-events: none; /* Menonaktifkan klik saat loading */
 }
 
-/* --- Skip Link (Accessibility) --- */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: var(--primary-200); 
-  color: var(--text-light);
-  padding: 8px;
-  text-decoration: none;
-  border-radius: 0 0 4px 4px;
-  z-index: 1001;
-  transition: top 0.3s ease;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
 /* PERUBAHAN UTAMA:
   Bagian .page-overlay DIHAPUS dari sini.
 */

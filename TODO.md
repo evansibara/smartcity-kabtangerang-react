@@ -1,6 +1,4 @@
-# TODO: Revise Footer with Icons for Contact Info
-
-- [x] Import MapPin, Mail, Phone icons from lucide-react in Footer.jsx
-- [x] Modify contact section in Footer.jsx to wrap address, email, phone in divs with icons
-- [x] Add CSS styles in footer.css for contact items (flex alignment, icon styling)
-- [x] Change mobile text alignment from center to left in footer.css
+- [ ] Ubah id="preloader" menjadi id="page-loader" di index.html
+- [ ] Ubah selector #preloader menjadi #page-loader di src/styles/index.css
+- [ ] Ubah referensi preloader menjadi page-loader di src/main.jsx dan tambahkan logika minimum 500ms
+- [ ] Tambahkan logika minimum 500ms di src/components/Layout.jsx untuk navigasi halaman

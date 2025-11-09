@@ -68,6 +68,16 @@ const initializeApp = () => {
                 <App />
             </StrictMode>
         );
+
+        // Hide preloader after React app is rendered
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 300);
+        }
+
     } catch (error) {
         console.error('Failed to render app:', error);
         // Catch rendering error di sini

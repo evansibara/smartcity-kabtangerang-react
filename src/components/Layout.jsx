@@ -21,13 +21,13 @@ export default function Layout() {
   // Handle route changes (Simulasi Transisi 300ms)
   useEffect(() => {
     // pageTransition bisa dipertahankan jika Anda masih ingin kelas app-shell 'page-transitioning'
-    setPageTransition(true); 
+    setPageTransition(true);
     setIsLoading(true);
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-      setPageTransition(false); 
-    }, 150); 
+      setPageTransition(false);
+    }, 150);
 
     return () => clearTimeout(timer);
   }, [location]);
@@ -60,11 +60,7 @@ export default function Layout() {
   return (
     <ErrorBoundary>
       <div className={`app-shell ${pageTransition ? 'page-transitioning' : ''}`}>
-        
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        
+
         <Header />
         
         <main 

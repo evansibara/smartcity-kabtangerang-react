@@ -30,17 +30,6 @@ const PageLoader = ({ fullscreen = false, message = "Memuat halaman..." }) => (
     // Tambahkan 'fullscreen' jika prop fullscreen true
     <div className={`loading-spinner ${fullscreen ? 'fullscreen' : ''}`}>
         <RotatingDots size={70} />
-        {message && (
-          <p style={{
-            marginTop: '16px',
-            color: '#711c5c',
-            fontSize: '16px',
-            fontWeight: '500',
-            textAlign: 'center'
-          }}>
-            {message}
-          </p>
-        )}
     </div>
 );
 
